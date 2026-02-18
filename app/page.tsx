@@ -42,7 +42,7 @@ export default function Home() {
               </Button>
               {/* Instagram */}
               <Button variant="outline" size="icon" className="rounded-full h-10 w-10" asChild>
-                <Link href="https://instagram.com/username" target="_blank">
+                <Link href="https://instagram.com/balee.sa" target="_blank">
                   <Instagram className="size-5" />
                   <span className="sr-only">Instagram</span>
                 </Link>
@@ -50,7 +50,7 @@ export default function Home() {
 
               {/* Gmail */}
               <Button variant="outline" size="icon" className="rounded-full h-10 w-10" asChild>
-                <Link href="mailto:emailanda@gmail.com">
+                <Link href="mailto:muhammad.iqbal.sap@gmail.com">
                   <Mail className="size-5" />
                   <span className="sr-only">Gmail</span>
                 </Link>
@@ -58,7 +58,7 @@ export default function Home() {
 
               {/* Github */}
               <Button variant="outline" size="icon" className="rounded-full h-10 w-10" asChild>
-                <Link href="https://github.com/username" target="_blank">
+                <Link href="https://github.com/muhammadiqbalsaputra" target="_blank">
                   <Github className="size-5" />
                   <span className="sr-only">Github</span>
                 </Link>
@@ -66,7 +66,7 @@ export default function Home() {
 
               {/* Linkedin */}
               <Button variant="outline" size="icon" className="rounded-full h-10 w-10" asChild>
-                <Link href="https://linkedin.com/in/username" target="_blank">
+                <Link href="https://linkedin.com/in/miqbalptr" target="_blank">
                   <Linkedin className="size-5" />
                   <span className="sr-only">Linkedin</span>
                 </Link>
