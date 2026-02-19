@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 import { Instagram, Mail, Github, Linkedin } from 'lucide-react'
 
+
 export default function Home() {
   return (
     <div className="relative min-h-screen">

@@ -41,7 +41,7 @@ export const Navbar = () => {
                 {/* Logo Area */}
                 <Link href="/" className="flex items-center gap-2 font-bold">
                     <Image
-                        src="/assets/logo/Logo%20bale%202.png"
+                        src="/assets/logo/iqballogo.png"
                         alt="Logo Brand"
                         width={32}
                         height={32}

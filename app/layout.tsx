@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Nama Project Anda",
+  title: "My Portofolio",
   description: "Deskripsi project yang menarik",
 }
 
