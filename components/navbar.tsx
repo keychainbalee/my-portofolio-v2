@@ -17,31 +17,34 @@ const menuItems = [
 export const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
-    const { theme, setTheme } = useTheme() // Hook untuk kontrol tema
+    const { theme, setTheme } = useTheme()
     const [mounted, setMounted] = React.useState(false)
 
-    // Menghindari hidrasi error (komponen harus sudah terpasang di client)
     React.useEffect(() => {
         setMounted(true)
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50)
+            // Mengubah state menjadi true saat di-scroll lebih dari 20px
+            setIsScrolled(window.scrollY > 20)
         }
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
     return (
-        <nav className="fixed z-50 w-full px-4 pt-4">
+        <nav className="fixed z-50 w-full px-4 pt-4 transition-all duration-300">
             <div
                 className={cn(
-                    "mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3 transition-all duration-300",
-                    isScrolled ? "max-w-4xl ..." : "bg-transparent"
+                    "mx-auto flex items-center justify-between px-6 py-3 transition-all duration-500",
+                    // LOGIKA BLUR DI SINI:
+                    isScrolled
+                        ? "max-w-4xl rounded-full border border-border/50 bg-background/60 shadow-md backdrop-blur-md dark:bg-background/40"
+                        : "max-w-6xl rounded-none border-transparent bg-transparent"
                 )}
             >
                 {/* Logo Area */}
                 <Link href="/" className="flex items-center gap-2 font-bold">
                     <Image
-                        src="/assets/logo/iqballogo.png"
+                        src="/assets/logo/Logo%20bale%202.png"
                         alt="Logo Brand"
                         width={32}
                         height={32}
