@@ -2,126 +2,115 @@
 
 import React from 'react'
 import { Navbar } from '@/components/navbar'
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { 
-  Code2, 
-  Layers, 
-  Cpu, 
-  Globe, 
-  Instagram, 
-  Mail, 
-  Github, 
-  Linkedin 
-} from 'lucide-react'
+import { Badge } from "@/components/ui/badge"
+import { Github, Instagram, Linkedin, Mail, Code2, GraduationCap, PenTool, Terminal } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 
-const skills = [
-  { name: 'Frontend', icon: <Code2 className="size-4" />, items: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'] },
-  { name: 'Backend', icon: <Cpu className="size-4" />, items: ['Node.js', 'PostgreSQL', 'Prisma'] },
-  { name: 'Design', icon: <Layers className="size-4" />, items: ['Figma', 'Adobe XD', 'Framer Motion'] },
-]
-
-export default function AboutPage() {
-  return (
-    <div className="relative min-h-screen bg-background">
-      <Navbar />
-
-      <main className="container mx-auto px-4 pt-28 pb-20 lg:pt-40">
-        <div className="mx-auto max-w-5xl">
-          
-          {/* Section: Introduction */}
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="relative order-2 lg:order-1">
-              <div className="relative aspect-square overflow-hidden rounded-2xl border bg-muted shadow-2xl">
-                <Image
-                  src="/assets/logo/Logo bale 2.png" // Gunakan foto asli Anda di sini
-                  alt="About Me"
-                  fill
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              {/* Floating Badge Experience */}
-              <div className="absolute -bottom-4 -right-4 rounded-xl border bg-card p-4 shadow-lg lg:-right-10">
-                <p className="text-2xl font-bold text-primary">2+</p>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Years Exp.</p>
-              </div>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <Badge variant="outline" className="mb-4 text-primary border-primary/20">
-                Tentang Saya
-              </Badge>
-              <h2 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl">
-                Seorang Developer yang Terobsesi dengan <span className="text-primary">Detail</span>.
-              </h2>
-              <p className="mt-6 text-muted-foreground leading-relaxed">
-                Halo! Nama saya **Bale**, seorang pengembang web yang berbasis di Indonesia. Saya sangat menyukai proses mengubah ide kompleks menjadi antarmuka yang sederhana, intuitif, dan cepat.
-              </p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Fokus utama saya saat ini adalah membangun aplikasi web yang responsif dengan performa tinggi menggunakan ekosistem **React** dan **Next.js**. Saya percaya bahwa kode yang bersih dan desain yang baik adalah kunci kesuksesan produk digital.
-              </p>
-
-              {/* Social Links di Halaman About */}
-              <div className="mt-8 flex gap-3">
-                <Button variant="ghost" size="icon" className="rounded-full" asChild>
-                  <Link href="#"><Instagram className="size-5" /></Link>
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full" asChild>
-                  <Link href="#"><Github className="size-5" /></Link>
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full" asChild>
-                  <Link href="#"><Linkedin className="size-5" /></Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          <hr className="my-16 border-muted" />
-
-          {/* Section: Skills/Tools */}
-          <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-1">
-              <h3 className="text-2xl font-bold tracking-tight">Keahlian Utama</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Teknologi dan alat yang sering saya gunakan untuk menghidupkan proyek digital.
-              </p>
-            </div>
+export default function AboutBento() {
+    return (
+        <div className="min-h-screen bg-background pb-20">
+            <Navbar />
             
-            <div className="lg:col-span-2 grid gap-4 sm:grid-cols-2">
-              {skills.map((skill, index) => (
-                <Card key={index} className="border-muted bg-card/50 backdrop-blur-sm transition-colors hover:bg-muted/30">
-                  <CardContent className="p-5">
-                    <div className="mb-3 flex items-center gap-2 text-primary">
-                      {skill.icon}
-                      <span className="font-semibold text-sm uppercase tracking-wide">{skill.name}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {skill.items.map((item) => (
-                        <Badge key={item} variant="secondary" className="font-normal text-[10px]">
-                          {item}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+            <main className="container mx-auto px-4 pt-32">
+                <div className="mx-auto max-w-5xl">
+                    <div className="grid grid-cols-5 grid-rows-8 gap-5 h-[900px]">
+                        
+                        {/* 4: Hero Profile Section (col-span-5 row-span-3) */}
+                        <Card className="col-span-5 row-span-3 overflow-hidden relative border-none bg-primary/5">
+                            <CardContent className="p-8 flex flex-col md:flex-row items-center gap-8 h-full">
+                                <div className="relative size-40 lg:size-48 shrink-0">
+                                    <Image
+                                        src="/assets/logo/Logo bale 2.png"
+                                        alt="Muhammad Iqbal Saputra"
+                                        fill
+                                        className="object-cover rounded-2xl shadow-xl"
+                                    />
+                                </div>
+                                <div className="flex flex-col justify-center text-center md:text-left">
+                                    <Badge className="w-fit mb-4 mx-auto md:mx-0">Software Engineering Student</Badge>
+                                    <h1 className="text-3xl lg:text-5xl font-extrabold tracking-tight">
+                                        Muhammad Iqbal Saputra
+                                    </h1>
+                                    <p className="mt-4 text-muted-foreground max-w-xl">
+                                        Mahasiswa Universitas Harkat Negeri yang berfokus pada pengembangan aplikasi modern dengan Python, Dart, dan Flutter.
+                                    </p>
+                                </div>
+                            </CardContent>
+                        </Card>
 
-          {/* CTA: Contact */}
-          <div className="mt-20 rounded-3xl bg-primary px-8 py-12 text-center text-primary-foreground shadow-xl">
-            <h3 className="text-3xl font-bold">Tertarik bekerja sama?</h3>
-            <p className="mt-4 opacity-90">Saya selalu terbuka untuk mendiskusikan proyek baru atau ide-ide kreatif.</p>
-            <Button variant="secondary" size="lg" className="mt-8 rounded-full px-8 font-semibold" asChild>
-              <Link href="mailto:emailanda@gmail.com">Kirim Pesan Sekarang</Link>
-            </Button>
-          </div>
+                        {/* 6: Education (col-span-2 row-span-2) */}
+                        <Card className="col-span-2 row-span-2 row-start-4 bg-card">
+                            <CardContent className="p-6 flex flex-col h-full">
+                                <GraduationCap className="size-6 text-primary mb-2" />
+                                <h3 className="font-bold text-lg">Pendidikan</h3>
+                                <div className="mt-2 space-y-1">
+                                    <p className="text-sm font-semibold text-primary">Universitas Harkat Negeri</p>
+                                    <p className="text-xs text-muted-foreground">Mataram | ID: 23090120</p>
+                                </div>
+                            </CardContent>
+                        </Card>
 
+                        {/* 7: Tech Stack (col-span-3 row-span-2) */}
+                        <Card className="col-span-3 row-span-2 col-start-3 row-start-4 bg-card">
+                            <CardContent className="p-6">
+                                <Code2 className="size-6 text-primary mb-2" />
+                                <h3 className="font-bold text-lg">Tech Stack</h3>
+                                <div className="flex flex-wrap gap-2 mt-3">
+                                    {['Python', 'Dart', 'Flutter', 'Next.js', 'PostgreSQL', 'Machine Learning'].map((s) => (
+                                        <Badge key={s} variant="secondary" className="text-[10px]">{s}</Badge>
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* 8-12: Social Media & Contacts (row-span-2) */}
+                        <Card className="row-span-2 row-start-6 flex items-center justify-center hover:bg-muted/50 transition-colors">
+                            <a href="https://github.com" target="_blank" className="flex flex-col items-center gap-2">
+                                <Github className="size-6" />
+                                <span className="text-[10px] font-medium uppercase">Github</span>
+                            </a>
+                        </Card>
+
+                        <Card className="row-span-2 row-start-6 flex items-center justify-center hover:bg-muted/50 transition-colors text-pink-500">
+                             <a href="https://instagram.com" target="_blank" className="flex flex-col items-center gap-2">
+                                <Instagram className="size-6" />
+                                <span className="text-[10px] font-medium uppercase text-foreground">Insta</span>
+                            </a>
+                        </Card>
+
+                        <Card className="row-span-2 row-start-6 flex items-center justify-center hover:bg-muted/50 transition-colors text-blue-600">
+                             <a href="https://linkedin.com" target="_blank" className="flex flex-col items-center gap-2">
+                                <Linkedin className="size-6" />
+                                <span className="text-[10px] font-medium uppercase text-foreground">Linkd</span>
+                            </a>
+                        </Card>
+
+                        <Card className="row-span-2 row-start-6 flex items-center justify-center hover:bg-muted/50 transition-colors text-red-500">
+                             <a href="mailto:email@example.com" className="flex flex-col items-center gap-2">
+                                <Mail className="size-6" />
+                                <span className="text-[10px] font-medium uppercase text-foreground">Mail</span>
+                            </a>
+                        </Card>
+
+                        <Card className="row-span-2 row-start-6 flex items-center justify-center hover:bg-muted/50 transition-colors">
+                             <div className="flex flex-col items-center gap-2">
+                                <Terminal className="size-6 text-primary" />
+                                <span className="text-[10px] font-medium uppercase">CV</span>
+                            </div>
+                        </Card>
+
+                        {/* 13: Organization Footer (col-span-5 row-start-8) */}
+                        <Card className="col-span-5 row-start-8 flex items-center justify-center bg-muted/30">
+                            <CardContent className="p-0 flex items-center gap-4 text-sm font-medium text-muted-foreground">
+                                <PenTool className="size-4" />
+                                <span>Aktif di UKM Pers Semata & Teater Banyu Biru</span>
+                            </CardContent>
+                        </Card>
+
+                    </div>
+                </div>
+            </main>
         </div>
-      </main>
-    </div>
-  )
+    )
 }
