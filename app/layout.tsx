@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar" // Sesuaikan path navbar Anda
 import { ThemeProvider } from "@/components/theme-provider"
+import Snowfall from 'react-snowfall'
+import { SnowfallWrapper } from "@/components/SnowfallWrapper"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,13 +39,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+
+          <SnowfallWrapper />
           {/* Navbar akan muncul di semua halaman */}
           <Navbar />
-          
           <main className="relative flex min-h-screen flex-col">
             {children}
           </main>
-          
+
           {/* Anda bisa menambahkan Footer di sini nanti */}
         </ThemeProvider>
       </body>
