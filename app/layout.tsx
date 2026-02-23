@@ -28,10 +28,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // suppressHydrationWarning penting karena kita menggunakan next-themes
     <html lang="en" suppressHydrationWarning>
+      {/* Tambahkan overflow-y-scroll di bawah ini */}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground overflow-y-scroll`}
       >
         <ThemeProvider
           attribute="class"

@@ -124,3 +124,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+/* app/globals.css */
+
+/* Mengatur ukuran lebar scrollbar menjadi lebih tipis dan estetik */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Jalur background scrollbar tetap transparan */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* Batang scrollbar default: Transparan (Tidak terlihat) */
+::-webkit-scrollbar-thumb {
+  background: transparent; 
+  border-radius: 10px;
+}
+
+/* Class ini akan dipicu oleh JavaScript saat layar sedang digeser */
+.is-scrolling::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4); /* Warna abu-abu transparan */
+}
+
+/* Jika kursor mouse diletakkan TEPAT di atas scrollbar, buat lebih tebal warnanya */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.8);
+}
