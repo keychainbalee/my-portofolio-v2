@@ -13,7 +13,7 @@ import Image from 'next/image'
 
 export default function AboutBento() {
     return (
-        <div className="min-h-screen bg-background pb-20">
+        <div className="min-h-screen bg-transparent pb-20">
             <Navbar />
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
