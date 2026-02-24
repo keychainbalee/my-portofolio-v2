@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Navbar } from '@/components/navbar'
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
-import { Instagram, Mail, Github, Linkedin, ArrowRight } from 'lucide-react'
+import { Instagram, Mail, Github, Linkedin, ArrowRightCircle } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -27,10 +27,10 @@ export default function Home() {
 
             {/* Kumpulan Tombol */}
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start items-center">
-              <Button size="sm" className="h-10 rounded-full px-6" asChild>
+              <Button size="sm" className="h-10 rounded-full px-5" asChild>
                 <Link href="/about">
                   About Me
-                  <ArrowRight className="size-4" />
+                  <ArrowRightCircle className="size-4 ml-0.5" />
                 </Link>
               </Button>
 

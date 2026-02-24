@@ -34,7 +34,7 @@ export default function AboutBento() {
                                 </div>
                                 <div className="flex flex-col justify-center text-center md:text-left">
                                     <Badge className="w-fit mb-4 mx-auto md:mx-0 bg-primary/20 text-primary hover:bg-primary/30 border-none">
-                                        Mahasiswa Teknik Informatika
+                                        Mahasiswa Teknik Informati
                                     </Badge>
                                     <h1 className="text-3xl md:text-4xl lg:text-6xl font-black tracking-tighter">
                                         Muhammad Iqbal Saputra
