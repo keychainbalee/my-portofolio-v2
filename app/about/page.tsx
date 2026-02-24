@@ -26,7 +26,7 @@ export default function AboutBento() {
                             <CardContent className="p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 h-full">
                                 <div className="relative size-40 md:size-48 lg:size-56 shrink-0 shadow-2xl rounded-3xl overflow-hidden md:rotate-3 md:hover:rotate-0 transition-transform duration-500">
                                     <Image
-                                        src="/assets/logo/profilesaya.png"
+                                        src="/assets/logo/profilsaya.png"
                                         alt="Muhammad Iqbal Saputra"
                                         fill
                                         className="object-cover"
