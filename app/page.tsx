@@ -14,19 +14,21 @@ export default function Home() {
         {/* Layout Grid Baru: 5 Kolom, 5 Baris di Desktop */}
         <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-5 gap-8 lg:gap-4 items-center">
 
-          {/* Bagian Kiri (Box 1): Teks dan Tombol (col-span-3 row-span-5) */}
+          {/* Bagian Kiri (Box 1): Teks dan Tombol */}
           <div className="lg:col-span-3 lg:row-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
 
-            <h1 className="max-w-md scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl">
+            {/* Animasi Slide Up untuk Heading */}
+            <h1 className="max-w-md scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
               Hi, Saya <span className="text-primary">Muhammad Iqbal Saputra</span>.
             </h1>
 
-            <p className="mt-4 max-w-md text-base text-muted-foreground lg:text-lg">
+            {/* Animasi Slide Up untuk Paragraf dengan sedikit delay (duration lebih lama) */}
+            <p className="mt-4 max-w-md text-base text-muted-foreground lg:text-lg animate-in fade-in slide-in-from-bottom-10 duration-[1500ms]">
               Jelajahi koleksi proyek saya. Tempat saya mendokumentasikan perjalanan dan hasil eksplorasi di bidang pengembangan web, mobile, dan AI.            
-              </p>
+            </p>
 
-            {/* Kumpulan Tombol */}
-            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start items-center">
+            {/* Animasi Fade In untuk Kumpulan Tombol */}
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start items-center animate-in fade-in zoom-in-95 duration-[2000ms]">
               <Button size="sm" className="h-10 rounded-full px-5" asChild>
                 <Link href="/about">
                   About Me
@@ -35,7 +37,7 @@ export default function Home() {
               </Button>
 
               {/* Instagram */}
-              <Button variant="outline" size="icon" className="rounded-full size-10" asChild>
+              <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
                 <Link href="https://instagram.com/balee.sa" target="_blank">
                   <Instagram className="size-5" />
                   <span className="sr-only">Instagram</span>
@@ -43,7 +45,7 @@ export default function Home() {
               </Button>
 
               {/* Gmail */}
-              <Button variant="outline" size="icon" className="rounded-full size-10" asChild>
+              <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
                 <Link href="mailto:muhammad.iqbal.sap@gmail.com">
                   <Mail className="size-5" />
                   <span className="sr-only">Gmail</span>
@@ -51,7 +53,7 @@ export default function Home() {
               </Button>
 
               {/* Github */}
-              <Button variant="outline" size="icon" className="rounded-full size-10" asChild>
+              <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
                 <Link href="https://github.com/muhammadiqbalsaputra" target="_blank">
                   <Github className="size-5" />
                   <span className="sr-only">Github</span>
@@ -59,7 +61,7 @@ export default function Home() {
               </Button>
 
               {/* Linkedin */}
-              <Button variant="outline" size="icon" className="rounded-full size-10" asChild>
+              <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
                 <Link href="https://linkedin.com/in/miqbalptr" target="_blank">
                   <Linkedin className="size-5" />
                   <span className="sr-only">Linkedin</span>
@@ -68,8 +70,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bagian Kanan (Box 3): Gambar Profil (col-span-2 row-span-5 col-start-4) */}
-          <div className="lg:col-span-2 lg:row-span-5 lg:col-start-4 flex justify-center lg:justify-end">
+          {/* Bagian Kanan (Box 3): Gambar Profil */}
+          {/* Animasi Slide dari Kanan untuk Gambar */}
+          <div className="lg:col-span-2 lg:row-span-5 lg:col-start-4 flex justify-center lg:justify-end animate-in fade-in slide-in-from-right-12 duration-1000">
             <div className="relative size-56 overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted shadow-xl lg:size-[300px]">
               <Image
                 src="/assets/logo/profilsaya.png" // Pastikan path benar
