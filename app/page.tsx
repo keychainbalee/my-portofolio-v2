@@ -24,7 +24,7 @@ export default function Home() {
 
             {/* Animasi Slide Up untuk Paragraf dengan sedikit delay (duration lebih lama) */}
             <p className="mt-4 max-w-md text-base text-muted-foreground lg:text-lg animate-in fade-in slide-in-from-bottom-10 duration-[1500ms]">
-              Jelajahi koleksi proyek saya. Tempat saya mendokumentasikan perjalanan dan hasil eksplorasi di bidang pengembangan web, mobile, dan AI.            
+              Jelajahi koleksi proyek saya. Tempat saya mendokumentasikan perjalanan dan hasil eksplorasi di bidang Teknologi            
             </p>
 
             {/* Animasi Fade In untuk Kumpulan Tombol */}
