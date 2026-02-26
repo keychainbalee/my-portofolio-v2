@@ -23,12 +23,12 @@ export default function Home() {
             </h1>
 
             {/* Animasi Slide Up untuk Paragraf dengan sedikit delay (duration lebih lama) */}
-            <p className="mt-4 max-w-md text-base text-muted-foreground lg:text-lg animate-in fade-in slide-in-from-bottom-10 duration-[1500ms]">
+            <p className="mt-4 max-w-md text-base text-muted-foreground lg:text-lg animate-in fade-in slide-in-from-bottom-10 duration-1500">
               Jelajahi koleksi proyek saya. Tempat saya mendokumentasikan perjalanan dan hasil eksplorasi di bidang Teknologi            
             </p>
 
             {/* Animasi Fade In untuk Kumpulan Tombol */}
-            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start items-center animate-in fade-in zoom-in-95 duration-[2000ms]">
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start items-center animate-in fade-in zoom-in-95 duration-1000">
               <Button size="sm" className="h-10 rounded-full px-5" asChild>
                 <Link href="/about">
                   About Me
@@ -73,7 +73,7 @@ export default function Home() {
           {/* Bagian Kanan (Box 3): Gambar Profil */}
           {/* Animasi Slide dari Kanan untuk Gambar */}
           <div className="lg:col-span-2 lg:row-span-5 lg:col-start-4 flex justify-center lg:justify-end animate-in fade-in slide-in-from-right-12 duration-1000">
-            <div className="relative size-56 overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted shadow-xl lg:size-[300px]">
+            <div className="relative size-56 overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted shadow-xl lg:size-72">
               <Image
                 src="/assets/logo/profilsaya.png" // Pastikan path benar
                 alt="Profile Muhammad Iqbal Saputra"
