@@ -153,3 +153,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(156, 163, 175, 0.8);
 }
+
+html {
+  scrollbar-gutter: stable;
+}
