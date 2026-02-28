@@ -10,7 +10,7 @@ import { useTheme } from 'next-themes'
 const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Project', href: '#project' },
+    { name: 'Project', href: '/project' },
     { name: 'Article', href: '#article' },
 ]
 
