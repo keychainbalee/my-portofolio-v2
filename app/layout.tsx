@@ -2,7 +2,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
-import { Navbar } from "@/components/navbar" // Sesuaikan path navbar Anda
+import { Navbar } from "@/components/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 import Snowfall from 'react-snowfall'
 import { SnowfallWrapper } from "@/components/SnowfallWrapper"
