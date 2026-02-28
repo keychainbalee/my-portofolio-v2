@@ -3,7 +3,7 @@
 import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Eye, Map, ShoppingBag, Github, ExternalLink } from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone,PersonStandingIcon } from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -11,12 +11,23 @@ import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class T
 // Kita tambahkan properti 'colSpan' agar masing-masing card tahu ukurannya
 const projectsData = [
     {
+        title: "My Portofolio Web",
+        description: "Aplikasi Portofolio Pribadi",
+        role: "Fullstack Dev",
+        icon: <PersonStandingIcon className="size-8 text-primary mb-4" />,
+        tech: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+        color: "text-primary",
+        colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
+        github: "#",
+        demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
+    },
+    {
         title: "JagaMata",
         description: "Aplikasi deteksi penyakit mata & rekomendasi terapi akupresur berbasis AI.",
         role: "AI Engineer",
-        icon: <Eye className="size-8 text-primary mb-4" />,
+        icon: <Eye className="size-8 text-blue-700 mb-4" />,
         tech: ['Python', 'Flutter'],
-        color: "text-primary",
+        color: "text-blue-700",
         colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
         github: "#",
         demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
@@ -42,13 +53,24 @@ const projectsData = [
         colSpan: "md:col-span-2",
         github: "#",
         demo: "#"
+    },
+    {
+        title: "Gadgetin",
+        description: "Website E-commerce komprehensif yang memfasilitasi transaksi jual beli Gadget.",
+        role: "Fullstack Dev & Unit Tester",
+        icon: <Smartphone className="size-8 text-blue-500 mb-4" />,
+        tech: ['Laravel', 'Tailwind CSS'],
+        color: "text-blue-500",
+        colSpan: "md:col-span-2",
+        github: "#",
+        demo: "#"
     }
 ]
 
 export default function ProjectBento() {
     return (
         <div className="min-h-screen bg-transparent pb-20 overflow-hidden">
-            
+
             {/* Dekorasi Cahaya */}
             <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
                 <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
@@ -57,7 +79,7 @@ export default function ProjectBento() {
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-6xl">
-                    
+
                     {/* Header */}
                     <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
                         <h1 className="text-3xl md:text-5xl font-black tracking-tighter mb-4">
@@ -70,14 +92,14 @@ export default function ProjectBento() {
 
                     {/* Bento Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5">
-                        
+
                         {/* 2. PROSES MAPPING DATA ARRAY */}
                         {projectsData.map((project, index) => (
-                            <Card 
-                                key={index} 
+                            <Card
+                                key={index}
                                 // Gabungkan class colSpan dari array dengan class bawaan card
                                 className={cn(
-                                    project.colSpan, 
+                                    project.colSpan,
                                     "group relative overflow-hidden rounded-3xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-slate-900/20 backdrop-blur-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500 animate-in fade-in zoom-in-95"
                                 )}
                                 style={{ animationFillMode: "both", animationDelay: `${index * 150}ms` }}
@@ -95,12 +117,12 @@ export default function ProjectBento() {
                                             ))}
                                         </div>
                                     </div>
-                                    
+
                                     <div className="mt-auto bg-white/5 dark:bg-black/10 p-4 border-t border-white/10 flex justify-between items-center">
                                         <span className={cn("text-[10px] font-bold uppercase tracking-widest", project.color)}>
                                             {project.role}
                                         </span>
-                                        
+
                                         <div className="flex gap-3">
                                             {/* Render icon Github HANYA jika link github diisi */}
                                             {project.github && (
