@@ -11,7 +11,7 @@ const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Project', href: '/project' },
-    { name: 'Article', href: '#article' },
+    // { name: 'Article', href: '#article' },
 ]
 
 export const Navbar = () => {
