@@ -67,49 +67,7 @@ export default function AboutBento() {
                                 ))}
                             </div>
                         </Card>
-
-                        {/* 8: Project 1 - JagaMata */}
-                        <Card className="md:col-span-2 md:row-span-3 md:row-start-6 group overflow-hidden border-primary/10">
-                            <CardContent className="p-0 flex flex-col h-full">
-                                <div className="p-6">
-                                    <Eye className="size-6 text-primary mb-3" />
-                                    <h4 className="font-bold text-lg">JagaMata</h4>
-                                    <p className="text-sm text-muted-foreground mt-2">Deteksi penyakit mata & terapi akupresur.</p>
-                                </div>
-                                <div className="mt-auto bg-muted/50 p-4 border-t group-hover:bg-primary/5 transition-colors">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Capstone Project</span>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* 14: Project 2 - Hilirisasi Rempah */}
-                        <Card className="md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-6 group overflow-hidden">
-                            <CardContent className="p-0 flex flex-col h-full">
-                                <div className="p-6">
-                                    <Map className="size-6 text-orange-500 mb-3" />
-                                    <h4 className="font-bold text-lg">Rempah Tour</h4>
-                                    <p className="text-sm text-muted-foreground mt-2">Web design & frontend untuk Hilirisasi Rempah Tour.</p>
-                                </div>
-                                <div className="mt-auto bg-muted/50 p-4 border-t group-hover:bg-orange-50 transition-colors">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-orange-600">Frontend & 360 Editor</span>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* 15: Project 3 - Sport Seventeen */}
-                        <Card className="md:col-span-2 md:row-span-3 md:col-start-5 md:row-start-6 group overflow-hidden">
-                            <CardContent className="p-0 flex flex-col h-full">
-                                <div className="p-6">
-                                    <Volleyball className="size-6 text-blue-500 mb-3" />
-                                    <h4 className="font-bold text-lg">Sport Seventeen</h4>
-                                    <p className="text-sm text-muted-foreground mt-2">Website Ecommerce jual beli alat olahraga.</p>
-                                </div>
-                                <div className="mt-auto bg-muted/50 p-4 border-t group-hover:bg-orange-50 transition-colors">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Ecommerce</span>
-                                </div>
-                            </CardContent>
-                        </Card>
-
+                        
                         {/* 16: Organization */}
                         <Card className="md:col-span-6 md:row-start-9 bg-primary text-primary-foreground flex items-center p-4 md:px-8 border-none overflow-hidden">
                             <div className="flex items-center gap-4 md:gap-6 w-full overflow-x-auto whitespace-nowrap no-scrollbar">
