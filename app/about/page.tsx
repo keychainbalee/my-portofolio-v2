@@ -16,16 +16,23 @@ import Link from 'next/link' // Pastikan import Link
 export default function AboutBento() {
     return (
         <div className="min-h-screen bg-transparent pb-20">
+
+            {/* Dekorasi Cahaya */}
+            <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
+                <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
+                <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
+            </div>
+            
             {/* Hapus Navbar di sini jika Anda sudah memasangnya di layout.tsx secara global */}
             <Navbar />
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-6xl">
-                    
+
                     {/* --- TOMBOL LIHAT CV DI POJOK KANAN ATAS --- */}
                     <div className="flex justify-end mb-6 animate-in fade-in slide-in-from-top-4 duration-1000">
-                        <Button 
-                            asChild 
+                        <Button
+                            asChild
                             className="rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all"
                         >
                             {/* Ganti URL di bawah ini dengan link Google Drive CV Anda */}
@@ -85,7 +92,7 @@ export default function AboutBento() {
                                 ))}
                             </div>
                         </Card>
-                        
+
                         {/* 16: Organization */}
                         <Card className="md:col-span-6 md:row-start-9 bg-primary text-primary-foreground flex items-center p-4 md:px-8 border-none overflow-hidden">
                             <div className="flex items-center gap-4 md:gap-6 w-full overflow-x-auto whitespace-nowrap no-scrollbar">
