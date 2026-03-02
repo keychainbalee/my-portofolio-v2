@@ -14,6 +14,12 @@ import Link from 'next/link'
 export default function AboutBento() {
     return (
         <div className="min-h-screen bg-transparent pb-20">
+            {/* Dekorasi Cahaya */}
+            <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
+                <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
+                <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
+            </div>
+            
             <Navbar />
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
@@ -25,7 +31,7 @@ export default function AboutBento() {
                             asChild
                             className="rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all"
                         >
-                            <Link href="https://drive.google.com/..." target="_blank" rel="noopener noreferrer">
+                            <Link href="#" target="_blank" rel="noopener noreferrer">
                                 <FileText className="size-4 mr-2" />
                                 Lihat CV
                             </Link>
