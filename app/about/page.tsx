@@ -4,49 +4,38 @@ import React from 'react'
 import { Navbar } from '@/components/navbar'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button" // Pastikan import Button
+import { Button } from "@/components/ui/button"
 import {
-    Github, Instagram, Linkedin, Mail,
-    Code2, GraduationCap, Eye, Map,
-    History, Users, Volleyball, FileText // Tambahkan icon FileText
+    Code2, GraduationCap, Users, FileText, Briefcase
 } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link' // Pastikan import Link
+import Link from 'next/link'
 
 export default function AboutBento() {
     return (
         <div className="min-h-screen bg-transparent pb-20">
-
-            {/* Dekorasi Cahaya */}
-            <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
-                <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
-                <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
-            </div>
-            
-            {/* Hapus Navbar di sini jika Anda sudah memasangnya di layout.tsx secara global */}
             <Navbar />
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-6xl">
-
+                    
                     {/* --- TOMBOL LIHAT CV DI POJOK KANAN ATAS --- */}
                     <div className="flex justify-end mb-6 animate-in fade-in slide-in-from-top-4 duration-1000">
-                        <Button
-                            asChild
+                        <Button 
+                            asChild 
                             className="rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all"
                         >
-                            {/* Ganti URL di bawah ini dengan link Google Drive CV Anda */}
-                            <Link href="#" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://drive.google.com/..." target="_blank" rel="noopener noreferrer">
                                 <FileText className="size-4 mr-2" />
                                 Lihat CV
                             </Link>
                         </Button>
                     </div>
 
-                    {/* Grid wrapper: 1 kolom di mobile, 6 kolom & tinggi fixed di medium/desktop */}
+                    {/* Grid wrapper: 6 kolom, 9 baris */}
                     <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-9 gap-4 md:gap-5 md:h-[1100px]">
 
-                        {/* 4: Main Profile */}
+                        {/* 1. Main Profile (Baris 1-3) */}
                         <Card className="md:col-span-6 md:row-span-3 overflow-hidden border-none bg-gradient-to-br from-primary/10 via-transparent to-muted">
                             <CardContent className="p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 h-full">
                                 <div className="relative size-40 md:size-48 lg:size-56 shrink-0 shadow-2xl rounded-3xl overflow-hidden md:rotate-3 md:hover:rotate-0 transition-transform duration-500">
@@ -72,7 +61,7 @@ export default function AboutBento() {
                             </CardContent>
                         </Card>
 
-                        {/* 6: Education */}
+                        {/* 2. Education (Baris 4-5) */}
                         <Card className="md:col-span-2 md:row-span-2 md:row-start-4 flex flex-col justify-center p-6">
                             <GraduationCap className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Pendidikan</h3>
@@ -82,7 +71,7 @@ export default function AboutBento() {
                             </div>
                         </Card>
 
-                        {/* 7: Tech Stack */}
+                        {/* 3. Tech Stack (Baris 4-5) */}
                         <Card className="md:col-span-4 md:row-span-2 md:col-start-3 md:row-start-4 p-6">
                             <Code2 className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
@@ -92,16 +81,72 @@ export default function AboutBento() {
                                 ))}
                             </div>
                         </Card>
-
-                        {/* 16: Organization */}
-                        <Card className="md:col-span-6 md:row-start-9 bg-primary text-primary-foreground flex items-center p-4 md:px-8 border-none overflow-hidden">
-                            <div className="flex items-center gap-4 md:gap-6 w-full overflow-x-auto whitespace-nowrap no-scrollbar">
-                                <Users className="size-5 shrink-0" />
-                                <div className="flex gap-6 md:gap-10 font-medium text-xs md:text-sm">
-                                    <span>UKM Pers Semata</span>
-                                    <span className="hidden md:inline">•</span>
-                                    <span>Forum Riset Teknologi Informasi (FORTI)</span>
+                        
+                        {/* 4. Pengalaman (Baris 6-9, Kolom 1-3) */}
+                        <Card className="md:col-span-3 md:row-span-4 md:row-start-6 p-6 flex flex-col overflow-hidden">
+                            <div className="flex items-center gap-3 mb-6">
+                                <Briefcase className="size-7 text-primary" />
+                                <h3 className="font-bold text-xl tracking-tight">Pengalaman</h3>
+                            </div>
+                            <div className="space-y-6 flex-1 overflow-y-auto no-scrollbar pr-2">
+                                <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
+                                    <p className="font-semibold text-sm md:text-base leading-snug">
+                                        Ketua Pelaksana Pelatihan Jurnalistik Tingkat Dasar
+                                    </p>
+                                    <Badge variant="secondary" className="mt-2 text-[10px]">2024</Badge>
                                 </div>
+                                <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
+                                    <p className="font-semibold text-sm md:text-base leading-snug">
+                                        Panitia PKKMB
+                                    </p>
+                                    <p className="text-sm text-muted-foreground mt-1">Koordinator Divisi Publikasi</p>
+                                    <Badge variant="secondary" className="mt-2 text-[10px]">2024</Badge>
+                                </div>
+                            </div>
+                        </Card>
+
+                        {/* 5. Organisasi dengan UI Timeline (Baris 6-9, Kolom 4-6) */}
+                        <Card className="md:col-span-3 md:row-span-4 md:col-start-4 md:row-start-6 p-6 flex flex-col overflow-hidden bg-primary/5 border-primary/10">
+                            <div className="flex items-center gap-3 mb-6">
+                                <Users className="size-7 text-primary" />
+                                <h3 className="font-bold text-xl tracking-tight">Organisasi</h3>
+                            </div>
+                            
+                            {/* Garis Timeline Kiri */}
+                            <div className="space-y-5 flex-1 overflow-y-auto no-scrollbar pr-2 border-l-2 border-primary/20 ml-2">
+                                
+                                {/* Item 1 */}
+                                <div className="relative pl-6">
+                                    <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary ring-4 ring-background" />
+                                    <p className="font-bold text-sm md:text-base text-primary">ForTI</p>
+                                    <p className="text-sm font-medium">Wakil Ketua</p>
+                                    <p className="text-xs text-muted-foreground mt-1">Sep 2025 - Sekarang</p>
+                                </div>
+
+                                {/* Item 2 */}
+                                <div className="relative pl-6">
+                                    <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary ring-4 ring-background" />
+                                    <p className="font-bold text-sm md:text-base text-primary">UKM Pers Semata</p>
+                                    <p className="text-sm font-medium">Pimpinan Umum</p>
+                                    <p className="text-xs text-muted-foreground mt-1">Feb 2025 - Feb 2026</p>
+                                </div>
+
+                                {/* Item 3 */}
+                                <div className="relative pl-6">
+                                    <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary/40 ring-4 ring-background" />
+                                    <p className="font-semibold text-sm md:text-base">UKM Pers Semata</p>
+                                    <p className="text-sm text-foreground/80">Audio & Visual</p>
+                                    <p className="text-xs text-muted-foreground mt-1">Feb 2024 - Feb 2025</p>
+                                </div>
+
+                                {/* Item 4 */}
+                                <div className="relative pl-6">
+                                    <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary/40 ring-4 ring-background" />
+                                    <p className="font-semibold text-sm md:text-base">PlugIn</p>
+                                    <p className="text-sm text-foreground/80 leading-snug">Anggota Web Beginner & Intermediate</p>
+                                    <p className="text-xs text-muted-foreground mt-1">Nov 2023 - Ags 2024</p>
+                                </div>
+
                             </div>
                         </Card>
 
