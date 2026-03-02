@@ -4,20 +4,38 @@ import React from 'react'
 import { Navbar } from '@/components/navbar'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button" // Pastikan import Button
 import {
     Github, Instagram, Linkedin, Mail,
     Code2, GraduationCap, Eye, Map,
-    History, Users, Volleyball
+    History, Users, Volleyball, FileText // Tambahkan icon FileText
 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link' // Pastikan import Link
 
 export default function AboutBento() {
     return (
         <div className="min-h-screen bg-transparent pb-20">
+            {/* Hapus Navbar di sini jika Anda sudah memasangnya di layout.tsx secara global */}
             <Navbar />
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-6xl">
+                    
+                    {/* --- TOMBOL LIHAT CV DI POJOK KANAN ATAS --- */}
+                    <div className="flex justify-end mb-6 animate-in fade-in slide-in-from-top-4 duration-1000">
+                        <Button 
+                            asChild 
+                            className="rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all"
+                        >
+                            {/* Ganti URL di bawah ini dengan link Google Drive CV Anda */}
+                            <Link href="#" target="_blank" rel="noopener noreferrer">
+                                <FileText className="size-4 mr-2" />
+                                Lihat CV
+                            </Link>
+                        </Button>
+                    </div>
+
                     {/* Grid wrapper: 1 kolom di mobile, 6 kolom & tinggi fixed di medium/desktop */}
                     <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-9 gap-4 md:gap-5 md:h-[1100px]">
 
