@@ -7,6 +7,13 @@ import { Instagram, Mail, Github, Linkedin, ArrowRightCircle } from 'lucide-reac
 export default function Home() {
   return (
     <div className="relative min-h-screen">
+      
+      {/* Dekorasi Cahaya */}
+      <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
+        <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
+        <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
+      </div>
+
       <Navbar />
 
       <main className="container mx-auto px-4 pt-28 pb-12 lg:pt-40">
@@ -24,7 +31,7 @@ export default function Home() {
 
             {/* Animasi Slide Up untuk Paragraf dengan sedikit delay (duration lebih lama) */}
             <p className="mt-4 max-w-md text-base text-muted-foreground lg:text-lg animate-in fade-in slide-in-from-bottom-10 duration-1500">
-              Jelajahi koleksi proyek saya. Tempat saya mendokumentasikan perjalanan dan hasil eksplorasi di bidang Teknologi            
+              Jelajahi koleksi proyek saya. Tempat saya mendokumentasikan perjalanan dan hasil eksplorasi di bidang Teknologi
             </p>
 
             {/* Animasi Fade In untuk Kumpulan Tombol */}
