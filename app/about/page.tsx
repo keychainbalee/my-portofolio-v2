@@ -18,11 +18,11 @@ export default function AboutBento() {
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-6xl">
-                    
+
                     {/* --- TOMBOL LIHAT CV DI POJOK KANAN ATAS --- */}
                     <div className="flex justify-end mb-6 animate-in fade-in slide-in-from-top-4 duration-1000">
-                        <Button 
-                            asChild 
+                        <Button
+                            asChild
                             className="rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all"
                         >
                             <Link href="https://drive.google.com/..." target="_blank" rel="noopener noreferrer">
@@ -81,7 +81,7 @@ export default function AboutBento() {
                                 ))}
                             </div>
                         </Card>
-                        
+
                         {/* 4. Pengalaman (Baris 6-9, Kolom 1-3) */}
                         <Card className="md:col-span-3 md:row-span-4 md:row-start-6 p-6 flex flex-col overflow-hidden">
                             <div className="flex items-center gap-3 mb-6">
@@ -91,8 +91,16 @@ export default function AboutBento() {
                             <div className="space-y-6 flex-1 overflow-y-auto no-scrollbar pr-2">
                                 <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
                                     <p className="font-semibold text-sm md:text-base leading-snug">
-                                        Ketua Pelaksana Pelatihan Jurnalistik Tingkat Dasar
+                                        Kunjungan Industri D4 Teknik Informatik Universitas Harkat Negeri
                                     </p>
+                                    <p className="text-sm text-muted-foreground mt-1">Sekretaris 1</p>
+                                    <Badge variant="secondary" className="mt-2 text-[10px]">2025</Badge>
+                                </div>
+                                <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
+                                    <p className="font-semibold text-sm md:text-base leading-snug">
+                                        Pelatihan Jurnalistik Tingkat Dasar
+                                    </p>
+                                    <p className="text-sm text-muted-foreground mt-1">Ketua Pelaksana</p>
                                     <Badge variant="secondary" className="mt-2 text-[10px]">2024</Badge>
                                 </div>
                                 <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
@@ -111,10 +119,10 @@ export default function AboutBento() {
                                 <Users className="size-7 text-primary" />
                                 <h3 className="font-bold text-xl tracking-tight">Organisasi</h3>
                             </div>
-                            
+
                             {/* Garis Timeline Kiri */}
                             <div className="space-y-5 flex-1 overflow-y-auto no-scrollbar pr-2 border-l-2 border-primary/20 ml-2">
-                                
+
                                 {/* Item 1 */}
                                 <div className="relative pl-6">
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary ring-4 ring-background" />
