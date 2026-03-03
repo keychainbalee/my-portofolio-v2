@@ -27,7 +27,7 @@ export default function AboutBento() {
                 <div className="absolute -bottom-40 -right-40 h-125 w-125 rounded-full bg-blue-500/20 blur-[120px]" />
             </div>
 
-            <Navbar />
+            {/* <Navbar /> */}
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-6xl">
