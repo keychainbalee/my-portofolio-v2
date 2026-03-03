@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
-    Code2, GraduationCap, Users, FileText, Briefcase, Award, ExternalLink
+    Code2, GraduationCap, Users, FileText, Briefcase, Award, ExternalLink, ArrowLeft, ArrowRight
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -250,6 +250,24 @@ export default function AboutBento() {
                                 ))}
                             </div>
                         </Card>
+
+                        {/* --- TOMBOL NAVIGASI BAWAH (FLOATING) --- */}
+                        <div className="bottom-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+                            {/* pointer-events-auto agar tombolnya saja yang bisa diklik, ruang kosong di tengahnya tidak menghalangi web */}
+                            <Button variant="secondary" className="rounded-full shadow-xl gap-2 hover:-translate-x-1 transition-transform pointer-events-auto" asChild>
+                                <Link href="/">
+                                    <ArrowLeft className="size-4" />
+                                    Home
+                                </Link>
+                            </Button>
+
+                            <Button className="rounded-full shadow-xl gap-2 hover:translate-x-1 transition-transform pointer-events-auto" asChild>
+                                <Link href="/project">
+                                    Project
+                                    <ArrowRight className="size-4" />
+                                </Link>
+                            </Button>
+                        </div>
 
                     </div>
                 </div>
