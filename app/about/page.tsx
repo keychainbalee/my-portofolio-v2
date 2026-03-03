@@ -134,7 +134,7 @@ export default function AboutBento() {
                                 {/* Item 1 */}
                                 <div className="relative pl-6">
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary ring-4 ring-background" />
-                                    <p className="font-bold text-sm md:text-base text-primary">ForTI</p>
+                                    <p className="font-bold text-sm md:text-base text-primary">Study Club ForTI</p>
                                     <p className="text-sm font-medium">Wakil Ketua</p>
                                     <p className="text-xs text-muted-foreground mt-1">Sep 2025 - Sekarang</p>
                                 </div>
@@ -158,7 +158,7 @@ export default function AboutBento() {
                                 {/* Item 4 */}
                                 <div className="relative pl-6">
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary/40 ring-4 ring-background" />
-                                    <p className="font-semibold text-sm md:text-base">PlugIn</p>
+                                    <p className="font-semibold text-sm md:text-base">Study Club PlugIn</p>
                                     <p className="text-sm text-foreground/80 leading-snug">Anggota Web Beginner & Intermediate</p>
                                     <p className="text-xs text-muted-foreground mt-1">Nov 2023 - Ags 2024</p>
                                 </div>
