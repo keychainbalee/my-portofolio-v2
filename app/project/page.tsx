@@ -3,7 +3,8 @@
 import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone,PersonStandingIcon } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -142,6 +143,16 @@ export default function ProjectBento() {
                             </Card>
                         ))}
 
+                    </div>
+                    {/* --- TOMBOL NAVIGASI BAWAH (FLOATING) --- */}
+                    <div className="mt-10 bottom-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+                        {/* pointer-events-auto agar tombolnya saja yang bisa diklik, ruang kosong di tengahnya tidak menghalangi web */}
+                        <Button variant="secondary" className="rounded-full shadow-xl gap-2 hover:-translate-x-1 transition-transform pointer-events-auto" asChild>
+                            <Link href="/about">
+                                <ArrowLeft className="size-4" />
+                                About
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </main>
