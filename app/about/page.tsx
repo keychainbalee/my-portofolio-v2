@@ -46,7 +46,7 @@ export default function AboutBento() {
                     </div>
 
                     {/* Grid wrapper: Diperluas menjadi 15 baris (grid-rows-15) */}
-                    <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-15 gap-4 md:gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-15 gap-4 md:gap-5 animate-in fade-in slide-in-from-top-4 duration-1000">
 
                         {/* 1. Main Profile (Baris 1-3) */}
                         <Card className="md:col-span-6 md:row-span-3 overflow-hidden border-none bg-linear-to-br from-primary/10 via-transparent to-muted">
@@ -67,36 +67,36 @@ export default function AboutBento() {
                                         Muhammad Iqbal Saputra
                                     </h1>
                                     <p className="mt-4 md:mt-6 text-muted-foreground max-w-2xl text-base md:text-lg leading-relaxed">
-                                        Mahasiswa Universitas Harkat Negeri yang berfokus pada **Python, Dart, dan Flutter**.
-                                        Senang menggabungkan teknologi dengan kreativitas lewat proyek digital.
+                                        Halo Namaku Muhammad Iqbal Saputra, seorang mahasiswa D4 Teknik Informatika di Universitas Harkat Negeri. Aku memiliki minat yang besar dalam bidang teknologi, terutama dalam pengembangan web, mobile, dan machine learning. Dengan pengalaman yang aku miliki, aku selalu bersemangat untuk belajar hal baru dan menerapkan pengetahuan yang aku dapatkan dalam proyek-proyek nyata.
                                     </p>
                                 </div>
                             </CardContent>
                         </Card>
 
                         {/* 2. Education (Baris 4-5) */}
-                        <Card className="md:col-span-2 md:row-span-2 md:row-start-4 flex flex-col justify-center p-6">
+                        <Card className="md:col-span-2 md:row-span-2 md:row-start-4 flex flex-col justify-center p-6 animate-in fade-in slide-in-from-top-4 duration-1000">
                             <GraduationCap className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Pendidikan</h3>
                             <div className="mt-3">
                                 <p className="font-bold text-primary">Universitas Harkat Negeri</p>
                                 <p className="text-sm text-muted-foreground mt-1">D4 Teknik Informatika</p>
+                                                                <p className="text-sm text-muted-foreground mt-1">Semester 6</p>
                             </div>
                         </Card>
 
                         {/* 3. Tech Stack (Baris 4-5) */}
-                        <Card className="md:col-span-4 md:row-span-2 md:col-start-3 md:row-start-4 p-6">
+                        <Card className="md:col-span-4 md:row-span-2 md:col-start-3 md:row-start-4 p-6 animate-in fade-in slide-in-from-top-4 duration-1000">
                             <Code2 className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                {['Python', 'Dart', 'Flutter', 'Next.js', 'Machine Learning', 'Sentiment Analysis', 'PostgreSQL'].map((s) => (
+                                {['Python', 'Dart', 'Flutter','Laravel','Javascript' , 'Next.js', 'Machine Learning','Deep Learning', 'Sentiment Analysis', 'PostgreSQL'].map((s) => (
                                     <Badge key={s} variant="outline" className="px-3 md:px-4 py-1 text-[10px] md:text-xs border-primary/20">{s}</Badge>
                                 ))}
                             </div>
                         </Card>
 
                         {/* 4. Pengalaman (Baris 6-9) */}
-                        <Card className="md:col-span-3 md:row-span-4 md:row-start-6 p-6 flex flex-col overflow-hidden">
+                        <Card className="md:col-span-3 md:row-span-4 md:row-start-6 p-6 flex flex-col overflow-hidden animate-in fade-in slide-in-from-top-4 duration-1000">
                             <div className="flex items-center gap-3 mb-6">
                                 <Briefcase className="size-7 text-primary" />
                                 <h3 className="font-bold text-xl tracking-tight">Pengalaman</h3>
@@ -121,95 +121,52 @@ export default function AboutBento() {
                         </Card>
 
                         {/* 5. Organisasi dengan UI Timeline (Baris 6-9, Kolom 4-6) */}
-
-                        <Card className="md:col-span-3 md:row-span-4 md:col-start-4 md:row-start-6 p-6 flex flex-col overflow-hidden">
+                        <Card className="md:col-span-3 md:row-span-4 md:col-start-4 md:row-start-6 p-6 flex flex-col overflow-hidden animate-in fade-in slide-in-from-top-4 duration-1000">
 
                             <div className="flex items-center gap-3 mb-6">
-
                                 <Users className="size-7 text-primary" />
-
                                 <h3 className="font-bold text-xl tracking-tight">Organisasi</h3>
-
                             </div>
-
-
 
                             {/* Garis Timeline Kiri */}
-
                             <div className="space-y-5 flex-1 overflow-y-auto no-scrollbar pr-2 border-l-2 border-primary/20 ml-2">
-
-
-
+                                
                                 {/* Item 1 */}
-
                                 <div className="relative pl-6">
-
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary ring-4 ring-background" />
-
                                     <p className="font-bold text-sm md:text-base text-primary">ForTI</p>
-
                                     <p className="text-sm font-medium">Wakil Ketua</p>
-
                                     <p className="text-xs text-muted-foreground mt-1">Sep 2025 - Sekarang</p>
-
                                 </div>
-
-
 
                                 {/* Item 2 */}
-
                                 <div className="relative pl-6">
-
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary ring-4 ring-background" />
-
                                     <p className="font-bold text-sm md:text-base text-primary">UKM Pers Semata</p>
-
                                     <p className="text-sm font-medium">Pimpinan Umum</p>
-
                                     <p className="text-xs text-muted-foreground mt-1">Feb 2025 - Feb 2026</p>
-
                                 </div>
-
-
 
                                 {/* Item 3 */}
-
                                 <div className="relative pl-6">
-
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary/40 ring-4 ring-background" />
-
                                     <p className="font-semibold text-sm md:text-base">UKM Pers Semata</p>
-
                                     <p className="text-sm text-foreground/80">Audio & Visual</p>
-
                                     <p className="text-xs text-muted-foreground mt-1">Feb 2024 - Feb 2025</p>
-
                                 </div>
-
-
 
                                 {/* Item 4 */}
-
                                 <div className="relative pl-6">
-
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary/40 ring-4 ring-background" />
-
                                     <p className="font-semibold text-sm md:text-base">PlugIn</p>
-
                                     <p className="text-sm text-foreground/80 leading-snug">Anggota Web Beginner & Intermediate</p>
-
                                     <p className="text-xs text-muted-foreground mt-1">Nov 2023 - Ags 2024</p>
-
                                 </div>
-
-
-
                             </div>
-
                         </Card>
 
                         {/* 6. Sertifikat - GRID KANAN KIRI (Baris 10-15) */}
-                        <Card className="md:col-span-6 md:row-span-6 md:row-start-10 p-6 flex flex-col bg-primary/5 border-primary/10">
+                        <Card className="md:col-span-6 md:row-span-6 md:row-start-10 p-6 flex flex-col bg-primary/5 border-primary/10 animate-in fade-in slide-in-from-top-4 duration-1000">
                             <div className="flex justify-between items-center mb-6">
                                 <div className="flex items-center gap-3">
                                     <Award className="size-7 text-primary" />
@@ -252,7 +209,7 @@ export default function AboutBento() {
                         </Card>
 
                         {/* --- TOMBOL NAVIGASI BAWAH (FLOATING) --- */}
-                        <div className="bottom-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+                        <div className="bottom-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none animate-in fade-in slide-in-from-top-4 duration-1000">
                             {/* pointer-events-auto agar tombolnya saja yang bisa diklik, ruang kosong di tengahnya tidak menghalangi web */}
                             <Button variant="secondary" className="rounded-full shadow-xl gap-2 hover:-translate-x-1 transition-transform pointer-events-auto" asChild>
                                 <Link href="/">
