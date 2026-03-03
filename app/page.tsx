@@ -14,7 +14,7 @@ export default function Home() {
         <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
       </div>
 
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className="container mx-auto px-4 pt-28 pb-12 lg:pt-40">
 
