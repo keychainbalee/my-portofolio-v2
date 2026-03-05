@@ -8,9 +8,9 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const PROFILE_IMAGES = [
-  "/assets/logo/profilsaya.png",
-  "/assets/logo/profilsaya2.jpeg", 
-  "/assets/logo/profilsaya3.jpg", 
+  "/assets/fotoprofil/profilsaya.png", 
+  "/assets/fotoprofil/profilesaya2.jpeg",
+  "/assets/fotoprofil/fotoprofile3.jpg",
 ];
 
 export default function Home() {
@@ -129,7 +129,7 @@ export default function Home() {
                         x: 150,
                         opacity: 0,
                         rotate: 15,
-                        transition: { duration: 0.2 } // Keluar sangat cepat saat diklik/swipe
+                        transition: { duration: 0.2 } 
                       }}
                       drag={isTop ? "x" : false}
                       dragConstraints={{ left: 0, right: 0 }}
