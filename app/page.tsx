@@ -1,10 +1,30 @@
+"use client";
 import Link from "next/link";
 import { Navbar } from '@/components/navbar'
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
 import { Instagram, Mail, Github, Linkedin, ArrowRightCircle } from 'lucide-react'
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+const PROFILE_IMAGES = [
+  "/assets/logo/profilsaya.png",
+  "/assets/logo/profilsaya2.jpeg", 
+  "/assets/logo/profilsaya3.jpg", 
+];
 
 export default function Home() {
+  const [cards, setCards] = useState(PROFILE_IMAGES);
+
+  const moveToEnd = () => {
+    setCards((prev) => {
+      const newCards = [...prev];
+      const first = newCards.shift();
+      if (first) newCards.push(first);
+      return newCards;
+    });
+  };
+
   return (
     <div className="relative min-h-screen">
 
@@ -79,15 +99,58 @@ export default function Home() {
 
           {/* Bagian Kanan (Box 3): Gambar Profil */}
           {/* Animasi Slide dari Kanan untuk Gambar */}
-          <div className="lg:col-span-2 lg:row-span-5 lg:col-start-4 flex justify-center lg:justify-end animate-in fade-in slide-in-from-right-12 duration-1000">
-            <div className="relative size-56 overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted shadow-xl lg:size-72">
-              <Image
-                src="/assets/logo/profilsaya.png" // Pastikan path benar
-                alt="Profile Muhammad Iqbal Saputra"
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-                priority
-              />
+          {/* Card Stack */}
+          <div className="lg:col-span-2 lg:row-span-5 lg:col-start-4 flex justify-center lg:justify-end items-center min-h-[300px]">
+            <div className="relative size-56 lg:size-72">
+              <AnimatePresence mode="popLayout">
+                {cards.map((src, index) => {
+                  const isTop = index === 0;
+                  return (
+                    <motion.div
+                      key={src}
+                      style={{
+                        zIndex: cards.length - index,
+                        cursor: isTop ? "grab" : "default",
+                      }}
+                      initial={{ scale: 0.9, opacity: 0, x: 20 }}
+                      animate={{
+                        scale: 1 - index * 0.05,
+                        y: index * 10,
+                        x: 0,
+                        opacity: 1 - index * 0.2,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 25,
+                        duration: 0.4,
+                      }}
+                      exit={{
+                        x: 150,
+                        opacity: 0,
+                        rotate: 15,
+                        transition: { duration: 0.2 } // Keluar sangat cepat saat diklik/swipe
+                      }}
+                      drag={isTop ? "x" : false}
+                      dragConstraints={{ left: 0, right: 0 }}
+                      onDragEnd={(_, info) => {
+                        // Jika swipe lebih dari 50px (lebih sensitif)
+                        if (Math.abs(info.offset.x) > 50) moveToEnd();
+                      }}
+                      onClick={isTop ? moveToEnd : undefined}
+                      className="absolute inset-0 overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted shadow-xl"
+                    >
+                      <Image
+                        src={src}
+                        alt="Profile Muhammad Iqbal Saputra"
+                        fill
+                        className="object-cover pointer-events-none select-none"
+                        priority={isTop}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
             </div>
           </div>
 
