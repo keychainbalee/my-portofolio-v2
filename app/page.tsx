@@ -10,7 +10,6 @@ import { AnimatePresence, motion } from "framer-motion";
 const PROFILE_IMAGES = [
   "/assets/fotoprofil/profilsaya.png", 
   "/assets/fotoprofil/profilesaya2.jpeg",
-  "/assets/fotoprofil/fotoprofile3.jpg",
 ];
 
 export default function Home() {
@@ -123,7 +122,7 @@ export default function Home() {
                         type: "spring",
                         stiffness: 300,
                         damping: 25,
-                        duration: 0.4,
+                        duration: 0.2,
                       }}
                       exit={{
                         x: 150,
