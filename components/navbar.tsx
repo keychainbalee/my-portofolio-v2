@@ -11,7 +11,6 @@ const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Project', href: '/project' },
-    // { name: 'Article', href: '#article' },
 ]
 
 export const Navbar = () => {
@@ -22,16 +21,12 @@ export const Navbar = () => {
     const { theme, setTheme } = useTheme()
 
     useEffect(() => {
-        // 1. Cek posisi scroll secara instan tanpa animasi
         if (window.scrollY > 20) {
             setIsScrolled(true)
         }
-        
-        // 2. Tandai mounted untuk render tema (Dark/Light)
+
         setMounted(true)
 
-        // 3. Aktifkan animasi transisi SETELAH render pertama selesai
-        // Ini mencegah efek "kaget/loncat" saat loading awal
         const timer = setTimeout(() => {
             setEnableTransition(true)
         }, 50)
@@ -51,17 +46,16 @@ export const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
             <div
                 className={cn(
-                    "mx-auto flex items-center justify-between px-6 py-3",
-                    // Transisi hanya aktif jika enableTransition bernilai true
+                    // 'relative' di sini agar menu dropdown menempel ke kontainer ini
+                    "relative mx-auto flex items-center justify-between px-6 py-3",
                     enableTransition ? "transition-all duration-500" : "",
-                    // LOGIKA BLUR:
                     isScrolled
                         ? "max-w-4xl rounded-full border border-border/50 bg-background/60 shadow-md backdrop-blur-md dark:bg-background/40"
                         : "max-w-6xl rounded-none border-transparent bg-transparent"
                 )}
             >
                 {/* Logo Area */}
-                <Link href="/" className="flex items-center gap-2 font-bold">
+                <Link href="/" className="flex items-center gap-2 font-bold z-50">
                     <Image
                         src="/assets/logo/iqballogo.png"
                         alt="Logo Brand"
@@ -88,47 +82,45 @@ export const Navbar = () => {
                 </ul>
 
                 {/* Right Side: Theme Toggle & Mobile Trigger */}
-                <div className="flex items-center gap-2">
-                    {/* Theme Toggle Button */}
-                    <button
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        className="flex items-center justify-center rounded-full p-2.5 transition-colors hover:bg-accent hover:text-accent-foreground size-10"
-                        aria-label="Toggle Theme"
-                    >
-                        {/* Placeholder ukuran sama saat belum mounted untuk mencegah loncat */}
-                        {!mounted ? (
-                             <div className="size-5" /> 
-                        ) : theme === 'dark' ? (
-                            <Sun className="size-5 transition-all" />
-                        ) : (
-                            <Moon className="size-5 transition-all" />
-                        )}
-                    </button>
-
+                <div className="flex items-center gap-2 z-50">
                     {/* Mobile Trigger */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="relative z-50 flex items-center justify-center p-2 lg:hidden size-10"
+                        className="relative flex items-center justify-center p-2 lg:hidden size-10 overflow-hidden"
                         aria-label="Toggle Menu"
                     >
-                        {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+                        <Menu
+                            className={cn(
+                                "absolute size-6 transition-all duration-300 ease-in-out",
+                                isOpen ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"
+                            )}
+                        />
+                        <X
+                            className={cn(
+                                "absolute size-6 transition-all duration-300 ease-in-out",
+                                isOpen ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-0 opacity-0"
+                            )}
+                        />
                     </button>
                 </div>
 
-                {/* Mobile Menu Overlay */}
+                {/* --- MOBILE MENU (SLIDE DOWN) --- */}
                 <div
                     className={cn(
-                        "fixed inset-0 z-40 flex h-screen w-full flex-col bg-background p-8 transition-transform duration-300 lg:hidden",
-                        isOpen ? "translate-x-0" : "translate-x-full"
+                        "absolute left-0 right-0 top-full mt-2 overflow-hidden rounded-3xl bg-background/90 backdrop-blur-xl shadow-lg transition-all duration-300 ease-in-out lg:hidden",
+                        // Logika Animasi:
+                        isOpen
+                            ? "max-h-96 opacity-100 py-6 border border-border/50"
+                            : "max-h-0 opacity-0 py-0 border-transparent"
                     )}
                 >
-                    <ul className="mt-24 space-y-8 text-2xl font-semibold">
+                    <ul className="flex flex-col items-center gap-6 text-xl font-semibold">
                         {menuItems.map((item) => (
                             <li key={item.name}>
                                 <Link
                                     href={item.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="hover:text-primary"
+                                    className="hover:text-primary transition-colors block px-4 py-2"
                                 >
                                     {item.name}
                                 </Link>
@@ -136,6 +128,7 @@ export const Navbar = () => {
                         ))}
                     </ul>
                 </div>
+
             </div>
         </nav>
     )
