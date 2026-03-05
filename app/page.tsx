@@ -61,7 +61,7 @@ export default function Home() {
 
               {/* Github */}
               <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
-                <Link href="https://github.com/muhammadiqbalsaputra" target="_blank">
+                <Link href="https://github.com/keychainbalee" target="_blank">
                   <Github className="size-5" />
                   <span className="sr-only">Github</span>
                 </Link>
