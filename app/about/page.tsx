@@ -38,7 +38,7 @@ export default function AboutBento() {
                             asChild
                             className="rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all"
                         >
-                            <Link href="#" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://drive.google.com/file/d/1oC1rNXD7W5mTRpxXbKxVXcqzs7smIwHB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                                 <FileText className="size-4 mr-2" />
                                 Lihat CV
                             </Link>

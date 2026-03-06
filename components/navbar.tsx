@@ -22,27 +22,26 @@ export const Navbar = () => {
     const { theme, setTheme } = useTheme()
 
     useEffect(() => {
-        // 1. Cek posisi scroll instan saat pertama kali dimuat
+        // Cek posisi scroll instan saat pertama kali dimuat
         if (window.scrollY > 20) {
             setIsScrolled(true)
         }
 
-        // 2. Tandai komponen sudah dimuat di sisi client (mencegah error Hydration tema)
+        // tandai komponen sudah dimuat di sisi client (mencegah error Hydration tema)
         setMounted(true)
 
-        // 3. Aktifkan transisi animasi setelah render pertama agar Navbar tidak "loncat"
+        // 3transisi animasi setelah render pertama agar Navbar tidak "loncat"
         const timer = setTimeout(() => {
             setEnableTransition(true)
         }, 50)
 
-        // 4. Deteksi scroll untuk efek glassmorphism
+        // scroll untuk efek glassmorphism
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20)
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true })
 
-        // Bersihkan event listener saat komponen dilepas
         return () => {
             window.removeEventListener('scroll', handleScroll)
             clearTimeout(timer)
@@ -57,16 +56,16 @@ export const Navbar = () => {
                     "relative mx-auto flex items-center justify-between px-6 py-3",
                     // Transisi bentuk aktif setelah loading
                     enableTransition ? "transition-all duration-500" : "",
-                    // Perubahan gaya saat scroll (bentuk pil vs transparan)
+                    // gaya saat scroll 
                     isScrolled
                         ? "max-w-4xl rounded-full border border-border/50 bg-background/60 shadow-md backdrop-blur-md dark:bg-background/40"
                         : "max-w-6xl rounded-none border-transparent bg-transparent"
                 )}
             >
-                {/* --- KIRI: LOGO --- */}
+                {/* --- LOGO --- */}
                 <Link href="/" className="flex items-center gap-2 font-bold z-50">
                     <Image
-                        src="/assets/logo/iqballogo.png" // Sesuaikan dengan path logo Anda
+                        src="/assets/logo/iqballogo.png" 
                         alt="Logo Iqbal"
                         width={32}
                         height={32}
@@ -90,7 +89,7 @@ export const Navbar = () => {
                     ))}
                 </ul>
 
-                {/* --- KANAN: THEME TOGGLE & MOBILE BURGER --- */}
+                {/* --- THEME TOGGLE & MOBILE BURGER --- */}
                 <div className="flex items-center gap-2 z-50">
 
                     {/* Theme Toggle Button */}
@@ -109,7 +108,7 @@ export const Navbar = () => {
                         )}
                     </button>
 
-                    {/* Mobile Trigger (Burger Animasi Morph) */}
+                    {/* Mobile Trigger*/}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="relative flex items-center justify-center p-2 lg:hidden size-10 overflow-hidden"
@@ -130,7 +129,7 @@ export const Navbar = () => {
                     </button>
                 </div>
 
-                {/* --- BAWAH: MOBILE MENU SLIDE DOWN --- */}
+                {/* --- BAWAH: MOBILE MENU  --- */}
                 <div
                     className={cn(
                         "absolute left-0 right-0 top-full mt-2 overflow-hidden rounded-3xl bg-background/95 backdrop-blur-xl shadow-lg transition-all duration-300 ease-in-out lg:hidden origin-top",
