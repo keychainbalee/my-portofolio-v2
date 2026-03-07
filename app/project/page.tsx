@@ -30,7 +30,7 @@ const projectsData = [
         tech: ['Python', 'Flutter'],
         color: "text-blue-700",
         colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
-        github: "#",
+        github: "https://github.com/mataminus-capstone/final_layout_jagamata",
         demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
     },
     {
@@ -42,7 +42,7 @@ const projectsData = [
         color: "text-orange-500",
         colSpan: "md:col-span-2",
         github: null,
-        demo: "#"
+        demo: null
     },
     {
         title: "Sport Seventeen",
@@ -52,8 +52,8 @@ const projectsData = [
         tech: ['Laravel', 'Tailwind CSS'],
         color: "text-rose-500",
         colSpan: "md:col-span-2",
-        github: "#",
-        demo: "#"
+        github: "https://github.com/keychainbalee/sport-ecommerce",
+        demo: null
     },
     {
         title: "Ini Gadget",
@@ -64,7 +64,7 @@ const projectsData = [
         color: "text-blue-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/inigadget-app",
-        demo: "#"
+        demo: null
     }
 ]
 
