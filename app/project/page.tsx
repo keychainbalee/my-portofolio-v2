@@ -19,7 +19,7 @@ const projectsData = [
         tech: ['Next.js', 'Tailwind CSS', 'TypeScript'],
         color: "text-primary",
         colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
-        github: "#",
+        github: "https://github.com/keychainbalee/my-portofolio-v2",
         demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
     },
     {
@@ -56,14 +56,14 @@ const projectsData = [
         demo: "#"
     },
     {
-        title: "Gadgetin",
+        title: "Ini Gadget",
         description: "Website E-commerce komprehensif yang memfasilitasi transaksi jual beli Gadget.",
         role: "Fullstack Dev & Unit Tester",
         icon: <Smartphone className="size-8 text-blue-500 mb-4" />,
         tech: ['Laravel', 'Tailwind CSS'],
         color: "text-blue-500",
         colSpan: "md:col-span-2",
-        github: "#",
+        github: "https://github.com/keychainbalee/inigadget-app",
         demo: "#"
     }
 ]
