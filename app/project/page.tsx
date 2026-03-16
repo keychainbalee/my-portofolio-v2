@@ -65,6 +65,17 @@ const projectsData = [
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/inigadget-app",
         demo: null
+    },
+    {
+        title: "Model Pendeteksi 5 Penyakit Mata",
+        description: "Model Machine Learning untuk mendeteksi 5 jenis penyakit mata menggunakan dataset Kaggle.",
+        role: "AI Engineer",
+        icon: <Smartphone className="size-8 text-blue-500 mb-4" />,
+        tech: ['Python', 'TensorFlow', 'Keras'],
+        color: "text-blue-500",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/test-and-train-v10",
+        demo: null
     }
 ]
 
