@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -59,7 +59,7 @@ const projectsData = [
         title: "Ini Gadget",
         description: "Website E-commerce komprehensif yang memfasilitasi transaksi jual beli Gadget.",
         role: "Fullstack Dev & Unit Tester",
-        icon: <Smartphone className="size-8 text-blue-500 mb-4" />,
+        icon: <ScanEye className="size-8 text-red-600 mb-4" />,
         tech: ['Laravel', 'Tailwind CSS'],
         color: "text-blue-500",
         colSpan: "md:col-span-2",
