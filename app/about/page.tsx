@@ -108,11 +108,6 @@ export default function AboutBento() {
                                     <Badge variant="secondary" className="mt-2 text-[10px]">2025</Badge>
                                 </div>
                                 <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
-                                    <p className="font-semibold text-sm md:text-base leading-snug">Sharanife Dexanet</p>
-                                    <p className="text-sm text-muted-foreground mt-1">Network Engineer</p>
-                                    <Badge variant="secondary" className="mt-2 text-[10px]">2022</Badge>
-                                </div>
-                                <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
                                     <p className="font-semibold text-sm md:text-base leading-snug">Kunjungan Industri D4 Teknik Informatika</p>
                                     <p className="text-sm text-muted-foreground mt-1">Sekretaris 1</p>
                                     <Badge variant="secondary" className="mt-2 text-[10px]">2025</Badge>
@@ -126,6 +121,11 @@ export default function AboutBento() {
                                     <p className="font-semibold text-sm md:text-base leading-snug">Panitia PKKMB</p>
                                     <p className="text-sm text-muted-foreground mt-1">Koordinator Divisi Publikasi</p>
                                     <Badge variant="secondary" className="mt-2 text-[10px]">2024</Badge>
+                                </div>
+                                <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
+                                    <p className="font-semibold text-sm md:text-base leading-snug">Sharanife Dexanet</p>
+                                    <p className="text-sm text-muted-foreground mt-1">Network Engineer</p>
+                                    <Badge variant="secondary" className="mt-2 text-[10px]">2022</Badge>
                                 </div>
                             </div>
                         </Card>
