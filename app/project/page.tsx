@@ -109,7 +109,7 @@ export default function ProjectBento() {
                             Koleksi <span className="text-primary">Proyek</span> Saya
                         </h1>
                         <p className="text-muted-foreground max-w-2xl mx-auto">
-                            Eksplorasi dan implementasi teknologi dari Web, Mobile, hingga Machine Learning.
+                            Eksplorasi dari teknologi Web, Mobile, hingga Machine Learning.
                         </p>
                     </div>
 
