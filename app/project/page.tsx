@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -77,7 +77,7 @@ const projectsData = [
         github: "https://github.com/keychainbalee/test-and-train-v10",
         demo: null
     },
-        {
+    {
         title: "Model Pendeteksi Mata Lelah",
         description: "Model Machine Learning untuk mendeteksi mata lelah menggunakan dataset Kaggle.",
         role: "AI Engineer",
@@ -86,6 +86,17 @@ const projectsData = [
         color: "text-pink-600",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/test-and-train-drowsiness-v1",
+        demo: null
+    },
+    {
+        title: "Model Pendeteksi Sayuran",
+        description: "Model Machine Learning untuk mendeteksi Nama Sayuran menggunakan dataset Kaggle.",
+        role: "AI Engineer",
+        icon: <Leaf className="size-8 text-green-500 mb-4" />,
+        tech: ['Python', 'TensorFlow', 'Keras'],
+        color: "text-green-500",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/klasifikasi-sayuran-cnn",
         demo: null
     },
 ]
