@@ -68,7 +68,7 @@ const projectsData = [
     },
     {
         title: "Model Pendeteksi 5 Penyakit Mata",
-        description: "Model Machine Learning untuk mendeteksi 5 jenis penyakit mata menggunakan dataset Kaggle.",
+        description: "Model Deep Learning untuk mendeteksi 5 jenis penyakit mata menggunakan dataset Kaggle.",
         role: "AI Engineer",
         icon: <ScanEye className="size-8 text-red-600 mb-4" />,
         tech: ['Python', 'TensorFlow', 'Keras'],
@@ -79,7 +79,7 @@ const projectsData = [
     },
     {
         title: "Model Pendeteksi Mata Lelah",
-        description: "Model Machine Learning untuk mendeteksi mata lelah menggunakan dataset Kaggle.",
+        description: "Model Deep Learning untuk mendeteksi mata lelah menggunakan dataset Kaggle.",
         role: "AI Engineer",
         icon: <ScanFace className="size-8 text-pink-600 mb-4" />,
         tech: ['Python', 'TensorFlow', 'Keras'],
@@ -90,7 +90,7 @@ const projectsData = [
     },
     {
         title: "Model Pendeteksi Sayuran",
-        description: "Model Machine Learning untuk mendeteksi Nama Sayuran menggunakan dataset Kaggle.",
+        description: "Model Deep Learning untuk mendeteksi Nama Sayuran menggunakan dataset Kaggle.",
         role: "AI Engineer",
         icon: <Leaf className="size-8 text-green-500 mb-4" />,
         tech: ['Python', 'TensorFlow', 'Keras'],
