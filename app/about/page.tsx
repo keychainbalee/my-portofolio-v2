@@ -15,7 +15,7 @@ const certificates = [
     { title: "AI Engineer Intermediate", src: "/assets/sertifikat/sertifaiintermediate.jpg", link: "https://drive.google.com/file/d/15erPHteNeIQAubvMMsaZX1Th2WEThjCz/view?usp=sharing" },
     { title: "Belajar Machine Learning (Dicoding)", src: "/assets/sertifikat/belajarml.jpg", link: "https://www.dicoding.com/certificates/QLZ96O19MZ5D" },
     { title: "Belajar Fundamental Deep Learning (Dicoding)", src: "/assets/sertifikat/fundamentaldeeplearning.jpg", link: "https://www.dicoding.com/certificates/ERZRL4J6QZYV" },
-    { title: "Network Support and Security (Cisco)", src: "/assets/sertifikat/networksupport.jpg", link: "https://drive.google.com/file/d/1CGwQrXh6GZhsJZQ3mXsMUzGkdFlpHK-t/view" },
+    // { title: "Network Support and Security (Cisco)", src: "/assets/sertifikat/networksupport.jpg", link: "https://drive.google.com/file/d/1CGwQrXh6GZhsJZQ3mXsMUzGkdFlpHK-t/view" },
     { title: "Backend Pemula Dengan Javascript (Dicoding)", src: "/assets/sertifikat/backend.jpg", link: "https://www.dicoding.com/certificates/QLZ96D21MZ5D" },
 ]
 
