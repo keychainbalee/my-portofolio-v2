@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Iqbal|Portofolio",
+  title: "My Portofolio",
   description: "Deskripsi project yang menarik",
 }
 
