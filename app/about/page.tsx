@@ -80,7 +80,7 @@ export default function AboutBento() {
                             <div className="mt-3">
                                 <p className="font-bold text-primary">Universitas Harkat Negeri</p>
                                 <p className="text-sm text-muted-foreground mt-1">D4 Teknik Informatika</p>
-                                                                <p className="text-sm text-muted-foreground mt-1">Semester 6</p>
+                                <p className="text-sm text-muted-foreground mt-1">Semester 6</p>
                             </div>
                         </Card>
 
@@ -89,7 +89,7 @@ export default function AboutBento() {
                             <Code2 className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                {['Python', 'Dart', 'Flutter','Laravel','Javascript' , 'Next.js', 'Machine Learning','Deep Learning', 'Sentiment Analysis', 'PostgreSQL'].map((s) => (
+                                {['Python', 'Dart', 'Flutter','Laravel','Javascript' , 'Next.js', 'Machine Learning','Deep Learning', 'Sentiment Analysis', 'PostgreSQL','Computer Vision'].map((s) => (
                                     <Badge key={s} variant="outline" className="px-3 md:px-4 py-1 text-[10px] md:text-xs border-primary/20 hover:scale-115 hover:bg-primary/20 transition-transform duration-200">{s}</Badge>
                                 ))}
                             </div>
