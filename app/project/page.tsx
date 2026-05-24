@@ -46,7 +46,7 @@ const projectsData = [
     },
     {
         title: "Sport Seventeen",
-        description: "Website E-commerce komprehensif yang memfasilitasi transaksi jual beli alat olahraga.",
+        description: "Website E-commerce memfasilitasi transaksi jual beli alat olahraga.",
         role: "Frontend Dev",
         icon: <ShoppingBag className="size-8 text-rose-500 mb-4" />,
         tech: ['Laravel', 'Tailwind CSS'],
