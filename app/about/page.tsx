@@ -89,7 +89,7 @@ export default function AboutBento() {
                             <Code2 className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                {['Python', 'Dart', 'Flutter','Laravel','Javascript' , 'Next.js', 'Machine Learning','Deep Learning', 'Sentiment Analysis', 'PostgreSQL','Computer Vision'].map((s) => (
+                                {['Python', 'Dart', 'Flutter','Laravel','Javascript' , 'Next.js', 'Machine Learning','Deep Learning', 'Sentiment Analysis','Computer Vision'].map((s) => (
                                     <Badge key={s} variant="outline" className="px-3 md:px-4 py-1 text-[10px] md:text-xs border-primary/20 hover:scale-115 hover:bg-primary/20 transition-transform duration-200">{s}</Badge>
                                 ))}
                             </div>
