@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar } from '@/components/navbar'
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
-import { Instagram, Mail, Github, Linkedin, ArrowRightCircle } from 'lucide-react'
+import { Instagram, Mail, Github, Linkedin, ArrowRightCircle, ArrowRight } from 'lucide-react'
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -58,7 +58,7 @@ export default function Home() {
               <Button size="sm" className="h-10 rounded-full px-5" asChild>
                 <Link href="/about">
                   About Me
-                  <ArrowRightCircle className="size-4 ml-0.5" />
+                  <ArrowRight className="size-4 ml-0.5" />
                 </Link>
               </Button>
 

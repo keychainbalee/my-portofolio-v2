@@ -48,7 +48,7 @@ export default function AboutBento() {
                     {/* Grid wrapper: Diperluas menjadi 15 baris (grid-rows-15) */}
                     <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-15 gap-4 md:gap-5 animate-in fade-in slide-in-from-top-4 duration-1000">
 
-                        {/* 1. Main Profile (Baris 1-3) */}
+                        {/* Main Profile */}
                         <Card className="md:col-span-6 md:row-span-3 overflow-hidden border-none bg-linear-to-br from-primary/10 via-transparent to-muted">
                             <CardContent className="p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 h-full">
                                 <div className="relative size-40 md:size-48 lg:size-56 shrink-0 shadow-2xl rounded-3xl overflow-hidden md:rotate-3 md:hover:rotate-0 transition-transform duration-500">
@@ -73,7 +73,7 @@ export default function AboutBento() {
                             </CardContent>
                         </Card>
 
-                        {/* 2. Education (Baris 4-5) */}
+                        {/* Education */}
                         <Card className="md:col-span-2 md:row-span-2 md:row-start-4 flex flex-col justify-center p-6 animate-in fade-in slide-in-from-top-4 duration-1000">
                             <GraduationCap className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Pendidikan</h3>
@@ -84,7 +84,7 @@ export default function AboutBento() {
                             </div>
                         </Card>
 
-                        {/* 3. Tech Stack (Baris 4-5) */}
+                        {/* Tech Stack */}
                         <Card className="md:col-span-4 md:row-span-2 md:col-start-3 md:row-start-4 p-6 animate-in fade-in slide-in-from-top-4 duration-1000">
                             <Code2 className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
@@ -95,7 +95,7 @@ export default function AboutBento() {
                             </div>
                         </Card>
 
-                        {/* 4. Pengalaman (Baris 6-9) */}
+                        {/*Pengalaman */}
                         <Card className="md:col-span-3 md:row-span-4 md:row-start-6 p-6 flex flex-col overflow-hidden animate-in fade-in slide-in-from-top-4 duration-1000">
                             <div className="flex items-center gap-3 mb-6">
                                 <Briefcase className="size-7 text-primary" />
@@ -130,7 +130,7 @@ export default function AboutBento() {
                             </div>
                         </Card>
 
-                        {/* 5. Organisasi dengan UI Timeline (Baris 6-9, Kolom 4-6) */}
+                        {/* Organisasi dengan UI Timeline */}
                         <Card className="md:col-span-3 md:row-span-4 md:col-start-4 md:row-start-6 p-6 flex flex-col overflow-hidden animate-in fade-in slide-in-from-top-4 duration-1000">
 
                             <div className="flex items-center gap-3 mb-6">
@@ -175,7 +175,7 @@ export default function AboutBento() {
                             </div>
                         </Card>
 
-                        {/* 6. Sertifikat - GRID KANAN KIRI (Baris 10-15) */}
+                        {/* Sertifikat */}
                         <Card className="md:col-span-6 md:row-span-6 md:row-start-10 p-6 flex flex-col bg-primary/5 border-primary/10 animate-in fade-in slide-in-from-top-4 duration-1000">
                             <div className="flex justify-between items-center mb-6">
                                 <div className="flex items-center gap-3">
@@ -187,7 +187,7 @@ export default function AboutBento() {
                                 </Button> */}
                             </div>
 
-                            {/* --- GRID UTAMA SERTIFIKAT (2 KOLOM) --- */}
+                            {/* GRID UTAMA SERTIFIKAT */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
                                 {certificates.map((cert, index) => (
                                     <div
@@ -218,7 +218,7 @@ export default function AboutBento() {
                             </div>
                         </Card>
 
-                        {/* --- TOMBOL NAVIGASI BAWAH (FLOATING) --- */}
+                        {/* TOMBOL NAVIGASI BAWAH */}
                         <div className="bottom-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none animate-in fade-in slide-in-from-top-4 duration-1000">
                             {/* pointer-events-auto agar tombolnya saja yang bisa diklik, ruang kosong di tengahnya tidak menghalangi web */}
                             <Button variant="secondary" className="rounded-full shadow-xl gap-2 hover:-translate-x-1 transition-transform pointer-events-auto" asChild>
