@@ -23,7 +23,7 @@ const projectsData = [
         demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
     },
     {
-        title: "JagaMata",
+        title: "JagaMata App",
         description: "Aplikasi deteksi penyakit mata & rekomendasi terapi akupresur berbasis AI.",
         role: "AI Engineer",
         icon: <Eye className="size-8 text-blue-700 mb-4" />,
