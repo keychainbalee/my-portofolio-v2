@@ -24,7 +24,7 @@ const projectsData = [
     },
     {
         title: "JagaMata App",
-        description: "Aplikasi deteksi penyakit mata & rekomendasi terapi akupresur berbasis AI.",
+        description: "Aplikasi deteksi potensi penyakit mata & rekomendasi terapi akupresur berbasis AI.",
         role: "AI Engineer",
         icon: <Eye className="size-8 text-blue-700 mb-4" />,
         tech: ['Python', 'Flutter'],
