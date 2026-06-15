@@ -68,7 +68,7 @@ const projectsData = [
     },
     {
         title: "Model Pendeteksi 5 Penyakit Mata",
-        description: "Model Deep Learning untuk mendeteksi 5 jenis penyakit mata menggunakan dataset Kaggle.",
+        description: "Model Deep Learning untuk mendeteksi 5 jenis penyakit mata menggunakan berbagai sumber dataset.",
         role: "AI Engineer",
         icon: <ScanEye className="size-8 text-red-600 mb-4" />,
         tech: ['Python', 'TensorFlow', 'Keras'],
