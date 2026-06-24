@@ -101,8 +101,8 @@ const projectsData = [
     },
     {
         title: "Olivia's Nightmares Game",
-        description: "Game FPS dengan nuansa horor, menggunakan Unity Engine",
-        role: "Frontend Developer",
+        description: "Game FPS dengan nuansa horor dan misteri, yang dikembangkan menggunakan Unity Engine",
+        role: "Game Developer",
         icon: <Gamepad2 className="size-8 text-purple-500 mb-4" />,
         tech: ['Unity', 'C#'],
         color: "text-purple-500",
