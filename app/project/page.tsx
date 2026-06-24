@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -99,6 +99,17 @@ const projectsData = [
         github: "https://github.com/keychainbalee/klasifikasi-sayuran-cnn",
         demo: null
     },
+    {
+        title: "Olivia's Nightmares Game",
+        description: "Game FPS dengan nuansa horor, menggunakan Unity Engine",
+        role: "Frontend Developer",
+        icon: <Gamepad2 className="size-8 text-purple-500 mb-4" />,
+        tech: ['Unity', 'C#'],
+        color: "text-purple-500",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/olivias_nightmares_games",
+        demo: null
+    }
 ]
 
 export default function ProjectBento() {
