@@ -19,15 +19,13 @@ export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [mounted, setMounted] = useState(false)
     const [enableTransition, setEnableTransition] = useState(false)
-    const { theme, setTheme } = useTheme()
+    const { setTheme, resolvedTheme } = useTheme()
 
     useEffect(() => {
-        // Cek posisi scroll instan saat pertama kali dimuat
         if (window.scrollY > 20) {
             setIsScrolled(true)
         }
 
-        // tandai komponen sudah dimuat di sisi client (mencegah error Hydration tema)
         setMounted(true)
 
         // 3transisi animasi setelah render pertama agar Navbar tidak "loncat"
@@ -94,14 +92,14 @@ export const Navbar = () => {
 
                     {/* Theme Toggle Button */}
                     <button
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                        onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                         className="flex items-center justify-center rounded-full p-2.5 transition-colors hover:bg-accent hover:text-accent-foreground size-10"
                         aria-label="Toggle Theme"
                     >
                         {/* Placeholder ukuran agar tidak bergeser saat loading */}
                         {!mounted ? (
                             <div className="size-5" />
-                        ) : theme === 'dark' ? (
+                        ) : resolvedTheme === 'dark' ? (
                             <Sun className="size-5 transition-transform duration-300 hover:rotate-90" />
                         ) : (
                             <Moon className="size-5 transition-transform duration-300 hover:-rotate-90" />

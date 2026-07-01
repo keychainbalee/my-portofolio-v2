@@ -1,12 +1,13 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar } from '@/components/navbar'
+import { cn } from '@/lib/utils'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
-    Code2, GraduationCap, Users, FileText, Briefcase, Award, ExternalLink, ArrowLeft, ArrowRight
+    Code2, GraduationCap, Users, FileText, Briefcase, Award, ExternalLink, ArrowLeft, ArrowRight, Trophy, ChevronDown
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -18,7 +19,31 @@ const certificates = [
     { title: "Machine Learning Terapan (Dicoding)", src: "/assets/sertifikat/sertif_ml_terapan.jpg", link: "https://www.dicoding.com/certificates/KEXLQ2MOWPG2" },
 ]
 
+const achievements = [
+    {
+        title: "Peraih Pendanaan Program Kreativitas Mahasiswa",
+        description: "Peraih Program Kreativitas Mahasiswa pada Bidang Karsa Cipta (PKM-KC) dari Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia",
+        date: "2026"
+    },
+    {
+        title: "Beasiswa IDCamp 2025 AI-Engineer (Expert)",
+        description: "Peraih Beasiswa IDCamp 2025 AI-Engineer (Expert) dari Indosat Ooredoo Hutchison dan Dicoding",
+        date: "2025"
+    },
+    {
+        title: "Beasiswa IDCamp 2025 AI-Engineer (Intermediate)",
+        description: "Peraih Beasiswa IDCamp 2025 AI-Engineer (Intermediate) dari Indosat Ooredoo Hutchison dan Dicoding",
+        date: "2025"
+    }
+]
+
 export default function AboutBento() {
+    const [expandedAchievement, setExpandedAchievement] = useState<number | null>(null)
+
+    const toggleAchievement = (index: number) => {
+        setExpandedAchievement(expandedAchievement === index ? null : index)
+    }
+
     return (
         <div className="min-h-screen bg-transparent pb-20">
             {/* Dekorasi Cahaya */}
@@ -45,8 +70,8 @@ export default function AboutBento() {
                         </Button>
                     </div>
 
-                    {/* Grid wrapper: Diperluas menjadi 15 baris (grid-rows-15) */}
-                    <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-15 gap-4 md:gap-5 animate-in fade-in slide-in-from-top-4 duration-1000">
+                    {/* Grid wrapper */}
+                    <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5 animate-in fade-in slide-in-from-top-4 duration-1000">
 
                         {/* Main Profile */}
                         <Card className="md:col-span-6 md:row-span-3 overflow-hidden border-none bg-linear-to-br from-primary/10 via-transparent to-muted">
@@ -175,8 +200,55 @@ export default function AboutBento() {
                             </div>
                         </Card>
 
+                        {/* Pencapaian (Achievements) */}
+                        <Card className="md:col-span-6 p-6 flex flex-col animate-in fade-in slide-in-from-top-4 duration-1000">
+                            <div className="flex items-center gap-3 mb-6">
+                                <Trophy className="size-7 text-primary" />
+                                <h3 className="font-bold text-xl tracking-tight">Pencapaian</h3>
+                            </div>
+                            
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
+                                {achievements.map((item, index) => {
+                                    const isOpen = expandedAchievement === index
+                                    return (
+                                        <div 
+                                            key={index}
+                                            className="flex flex-col justify-between p-5 rounded-2xl border border-border/50 bg-muted/20 hover:bg-muted/40 transition-all duration-300 hover:shadow-sm h-fit"
+                                        >
+                                            <div>
+                                                <div className="flex items-center justify-between mb-3">
+                                                    <Badge variant="secondary" className="text-[10px]">{item.date}</Badge>
+                                                    <Award className="size-5 text-primary" />
+                                                </div>
+                                                <button
+                                                    onClick={() => toggleAchievement(index)}
+                                                    className="flex items-center justify-between w-full text-left font-bold text-base tracking-tight group/btn cursor-pointer"
+                                                >
+                                                    <span>{item.title}</span>
+                                                    <ChevronDown className={cn(
+                                                        "size-4 text-muted-foreground transition-transform duration-300 shrink-0 ml-2",
+                                                        isOpen && "rotate-180 text-primary"
+                                                    )} />
+                                                </button>
+                                                <div className={cn(
+                                                    "grid transition-all duration-300 ease-in-out",
+                                                    isOpen ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0"
+                                                )}>
+                                                    <div className="overflow-hidden">
+                                                        <p className="text-sm text-muted-foreground leading-relaxed pt-1">
+                                                            {item.description}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </Card>
+
                         {/* Sertifikat */}
-                        <Card className="md:col-span-6 md:row-span-6 md:row-start-10 p-6 flex flex-col bg-primary/5 border-primary/10 animate-in fade-in slide-in-from-top-4 duration-1000">
+                        <Card className="md:col-span-6 p-6 flex flex-col bg-primary/5 border-primary/10 animate-in fade-in slide-in-from-top-4 duration-1000">
                             <div className="flex justify-between items-center mb-6">
                                 <div className="flex items-center gap-3">
                                     <Award className="size-7 text-primary" />
