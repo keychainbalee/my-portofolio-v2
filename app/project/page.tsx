@@ -35,7 +35,7 @@ const projectsData = [
     },
     {
         title: "Quizzin App",
-        description: "Platform Pembelajaran Adaptif dengan Penilaian Esai Otomatis Berbasis NLP",
+        description: "Platform Pembelajaran Latihan Soal Adaptif dengan Penilaian Esai Otomatis",
         role: "Mobile Dev & AI Engineer",
         icon: <GraduationCapIcon className="size-8 text-blue-500 mb-4" />,
         tech: ['Flutter', 'Python', 'TensorFlow'],
