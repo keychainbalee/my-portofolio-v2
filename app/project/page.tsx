@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -32,6 +32,17 @@ const projectsData = [
         colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
         github: "https://github.com/mataminus-capstone/final_layout_jagamata",
         demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
+    },
+    {
+        title: "Quizzin App",
+        description: "Platform Pembelajaran Adaptif dengan Penilaian Esai Otomatis Berbasis NLP",
+        role: "Mobile Dev & AI Engineer",
+        icon: <GraduationCapIcon className="size-8 text-blue-500 mb-4" />,
+        tech: ['Flutter', 'Python', 'TensorFlow'],
+        color: "text-blue-500",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/quizzin_mobile",
+        demo: null
     },
     {
         title: "Rempah Tour",
@@ -109,7 +120,7 @@ const projectsData = [
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/olivias_nightmares_games",
         demo: null
-    }
+    },
 ]
 
 export default function ProjectBento() {
