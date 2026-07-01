@@ -7,8 +7,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
-    Code2, GraduationCap, Users, FileText, Briefcase, Award, ExternalLink, ArrowLeft, ArrowRight, Trophy, ChevronDown
+    Code2, GraduationCap, Users, FileText, Briefcase, Award, ExternalLink, ArrowLeft, ArrowRight, Trophy, ChevronDown,
+    Brain, Cpu, Eye, Smile, Medal
 } from 'lucide-react'
+import { FaPython, FaLaravel } from "react-icons/fa"
+import { SiDart, SiFlutter, SiJavascript, SiNextdotjs } from "react-icons/si"
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -17,6 +20,19 @@ const certificates = [
     { title: "Projek Deep Learning Mahir (Dicoding)", src: "/assets/sertifikat/sertif_dl_mahir.jpg", link: "https://www.dicoding.com/certificates/L4PQ928V2PO1" },
     { title: "Backend Pemula Dengan Javascript (Dicoding)", src: "/assets/sertifikat/backend.jpg", link: "https://www.dicoding.com/certificates/QLZ96D21MZ5D" },
     { title: "Machine Learning Terapan (Dicoding)", src: "/assets/sertifikat/sertif_ml_terapan.jpg", link: "https://www.dicoding.com/certificates/KEXLQ2MOWPG2" },
+]
+
+const techSkills = [
+    { name: 'Python', icon: FaPython },
+    { name: 'Dart', icon: SiDart },
+    { name: 'Flutter', icon: SiFlutter },
+    { name: 'Laravel', icon: FaLaravel },
+    { name: 'Javascript', icon: SiJavascript },
+    { name: 'Next.js', icon: SiNextdotjs },
+    { name: 'Machine Learning', icon: Brain },
+    { name: 'Deep Learning', icon: Cpu },
+    { name: 'Sentiment Analysis', icon: Smile },
+    { name: 'Computer Vision', icon: Eye }
 ]
 
 const achievements = [
@@ -114,8 +130,15 @@ export default function AboutBento() {
                             <Code2 className="size-8 text-primary mb-4" />
                             <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                {['Python', 'Dart', 'Flutter','Laravel','Javascript' , 'Next.js', 'Machine Learning','Deep Learning', 'Sentiment Analysis','Computer Vision'].map((s) => (
-                                    <Badge key={s} variant="outline" className="px-3 md:px-4 py-1 text-[10px] md:text-xs border-primary/20 hover:scale-115 hover:bg-primary/20 transition-transform duration-200">{s}</Badge>
+                                {techSkills.map((skill) => (
+                                    <Badge 
+                                        key={skill.name} 
+                                        variant="outline" 
+                                        className="flex items-center gap-2 px-3 py-1.5 text-[10px] md:text-xs border-primary/20 hover:scale-105 hover:bg-primary/10 transition-all duration-200 cursor-default"
+                                    >
+                                        {skill.icon && <skill.icon className="size-4 text-primary" />}
+                                        <span>{skill.name}</span>
+                                    </Badge>
                                 ))}
                             </div>
                         </Card>
@@ -218,7 +241,7 @@ export default function AboutBento() {
                                             <div>
                                                 <div className="flex items-center justify-between mb-3">
                                                     <Badge variant="secondary" className="text-[10px]">{item.date}</Badge>
-                                                    <Award className="size-5 text-primary" />
+                                                    <Medal className="size-5 text-primary" />
                                                 </div>
                                                 <button
                                                     onClick={() => toggleAchievement(index)}
