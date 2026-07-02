@@ -38,7 +38,7 @@ const techSkills = [
 const achievements = [
     {
         title: "Peraih Pendanaan Program Kreativitas Mahasiswa",
-        description: "Peraih Program Kreativitas Mahasiswa pada Bidang Karsa Cipta (PKM-KC) dari Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia",
+        description: "Peraih Program Kreativitas Mahasiswa pada Bidang Karsa Cipta (PKM-KC) dari Kementerian Pendidikan Tinggi, Sains, dan Teknologi Republik Indonesia",
         date: "2026"
     },
     {
@@ -116,9 +116,11 @@ export default function AboutBento() {
 
                         {/* Education */}
                         <Card className="md:col-span-2 md:row-span-2 md:row-start-4 flex flex-col justify-center p-6 animate-in fade-in slide-in-from-top-4 duration-1000">
-                            <GraduationCap className="size-8 text-primary mb-4" />
-                            <h3 className="font-bold text-xl tracking-tight">Pendidikan</h3>
-                            <div className="mt-3">
+                            <div className="flex items-center gap-3 mb-4">
+                                <GraduationCap className="size-7 text-primary" />
+                                <h3 className="font-bold text-xl tracking-tight">Pendidikan</h3>
+                            </div>
+                            <div>
                                 <p className="font-bold text-primary">Universitas Harkat Negeri</p>
                                 <p className="text-sm text-muted-foreground mt-1">D4 Teknik Informatika</p>
                                 <p className="text-sm text-muted-foreground mt-1">Semester 6</p>
@@ -127,9 +129,11 @@ export default function AboutBento() {
 
                         {/* Tech Stack */}
                         <Card className="md:col-span-4 md:row-span-2 md:col-start-3 md:row-start-4 p-6 animate-in fade-in slide-in-from-top-4 duration-1000">
-                            <Code2 className="size-8 text-primary mb-4" />
-                            <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
-                            <div className="flex flex-wrap gap-2 mt-4">
+                            <div className="flex items-center gap-3 mb-4">
+                                <Code2 className="size-7 text-primary" />
+                                <h3 className="font-bold text-xl tracking-tight">Keahlian Teknis</h3>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
                                 {techSkills.map((skill) => (
                                     <Badge 
                                         key={skill.name} 
