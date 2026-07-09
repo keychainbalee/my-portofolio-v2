@@ -119,7 +119,7 @@ const projectsData = [
         color: "text-purple-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/olivias_nightmares_games",
-        demo: null
+        demo: "https://olivenights.vercel.app/"
     },
 ]
 
