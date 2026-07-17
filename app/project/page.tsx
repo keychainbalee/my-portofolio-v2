@@ -42,7 +42,7 @@ const projectsData = [
         color: "text-blue-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/quizzin_mobile",
-        demo: null
+        demo: "https://quizzin.web.id/"
     },
     {
         title: "Rempah Tour",
