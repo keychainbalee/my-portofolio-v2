@@ -108,7 +108,7 @@ export default function AboutBento() {
                                         Muhammad Iqbal Saputra
                                     </h1>
                                     <p className="mt-4 md:mt-6 text-muted-foreground max-w-2xl text-base md:text-lg leading-relaxed">
-                                        Halo Namaku Muhammad Iqbal Saputra, seorang Mahasiswa Aktif Teknik Informatika. Aku memiliki minat yang besar dalam bidang teknologi, terutama dalam pengembangan web, mobile, dan Artificial Intelegent. Dengan pengalaman yang aku miliki, aku selalu bersemangat untuk belajar hal baru dan menerapkan pengetahuan yang aku dapatkan dalam proyek-proyek nyata.
+                                        Halo Namaku Muhammad Iqbal Saputra, seorang Mahasiswa Aktif Teknik Informatika. Aku memiliki minat yang besar dalam bidang teknologi, terutama dalam pengembangan Artificial Intelligence dan Pengembangan Aplikasi Web serta Mobile. Dengan pengalaman yang aku miliki, aku selalu bersemangat untuk belajar hal baru dan menerapkan pengetahuan yang aku dapatkan dalam proyek-proyek nyata.
                                     </p>
                                 </div>
                             </CardContent>
