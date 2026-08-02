@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Footprints, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -43,6 +43,17 @@ const projectsData = [
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/quizzin_mobile",
         demo: "https://quizzin.web.id/"
+    },
+    {
+        title: "Localize",
+        description: "Platform penjualan sepatu lokal berbasis mobile.",
+        role: "Mobile Dev & Backend Dev",
+        icon: <Footprints className="size-8 text-yellow-500 mb-4" />,
+        tech: ['Flutter', 'Express.js', 'Drizzle ORM'],
+        color: "text-yellow-500",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/localize_app",
+        demo: null
     },
     {
         title: "Rempah Tour",

@@ -37,20 +37,20 @@ const techSkills = [
 
 const achievements = [
     {
+        title: "Mahasiswa Terbaik Universitas Harkat Negeri 2026",
+        description: "Peraih Penghargaan Mahasiswa Terbaik Universitas Harkat Negeri 2026 dari Fakultas Sekolah Vokasi dalam rangka Dies Natalis Universitas Harkat Negeri ke-1",
+        date: "2026"
+    },
+    {
         title: "Peraih Pendanaan Program Kreativitas Mahasiswa",
         description: "Peraih Program Kreativitas Mahasiswa pada Bidang Karsa Cipta (PKM-KC) dari Kementerian Pendidikan Tinggi, Sains, dan Teknologi Republik Indonesia",
         date: "2026"
     },
     {
-        title: "Beasiswa IDCamp 2025 AI-Engineer (Expert)",
-        description: "Peraih Beasiswa IDCamp 2025 AI-Engineer (Expert) dari Indosat Ooredoo Hutchison dan Dicoding",
+        title: "Beasiswa IDCamp 2025 AI-Engineer (Expert & Intermediate)",
+        description: "Peraih Beasiswa IDCamp 2025 AI-Engineer (Expert & Intermediate) dari Indosat Ooredoo Hutchison dan Dicoding",
         date: "2025"
     },
-    {
-        title: "Beasiswa IDCamp 2025 AI-Engineer (Intermediate)",
-        description: "Peraih Beasiswa IDCamp 2025 AI-Engineer (Intermediate) dari Indosat Ooredoo Hutchison dan Dicoding",
-        date: "2025"
-    }
 ]
 
 export default function AboutBento() {
@@ -159,21 +159,6 @@ export default function AboutBento() {
                                     <p className="text-sm text-muted-foreground mt-1">Frontend Developer</p>
                                     <Badge variant="secondary" className="mt-2 text-[10px]">2025</Badge>
                                 </div>
-                                {/* <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
-                                    <p className="font-semibold text-sm md:text-base leading-snug">Kunjungan Industri D4 Teknik Informatika</p>
-                                    <p className="text-sm text-muted-foreground mt-1">Sekretaris 1</p>
-                                    <Badge variant="secondary" className="mt-2 text-[10px]">2025</Badge>
-                                </div>
-                                <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
-                                    <p className="font-semibold text-sm md:text-base leading-snug">Pelatihan Jurnalistik Tingkat Dasar</p>
-                                    <p className="text-sm text-muted-foreground mt-1">Ketua Pelaksana</p>
-                                    <Badge variant="secondary" className="mt-2 text-[10px]">2024</Badge>
-                                </div> */}
-                                {/* <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
-                                    <p className="font-semibold text-sm md:text-base leading-snug">Panitia PKKMB</p>
-                                    <p className="text-sm text-muted-foreground mt-1">Koordinator Divisi Publikasi</p>
-                                    <Badge variant="secondary" className="mt-2 text-[10px]">2024</Badge>
-                                </div> */}
                                 <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:size-2 before:rounded-full before:bg-primary">
                                     <p className="font-semibold text-sm md:text-base leading-snug">Sharanife Dexanet</p>
                                     <p className="text-sm text-muted-foreground mt-1">Network Engineer</p>
@@ -234,13 +219,13 @@ export default function AboutBento() {
                                 <h3 className="font-bold text-xl tracking-tight">Pencapaian</h3>
                             </div>
                             
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
+                            <div className="flex flex-wrap justify-center gap-4 flex-1">
                                 {achievements.map((item, index) => {
                                     const isOpen = expandedAchievement === index
                                     return (
                                         <div 
                                             key={index}
-                                            className="flex flex-col justify-between p-5 rounded-2xl border border-border/50 bg-muted/20 hover:bg-muted/40 transition-all duration-300 hover:shadow-sm h-fit"
+                                            className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.7rem)] flex flex-col justify-between p-5 rounded-2xl border border-border/50 bg-muted/20 hover:bg-muted/40 transition-all duration-300 hover:shadow-sm h-fit"
                                         >
                                             <div>
                                                 <div className="flex items-center justify-between mb-3">
@@ -281,9 +266,6 @@ export default function AboutBento() {
                                     <Award className="size-7 text-primary" />
                                     <h3 className="font-bold text-xl tracking-tight">Sertifikat</h3>
                                 </div>
-                                {/* <Button variant="outline" size="sm" asChild>
-                                    <Link href="#" target="_blank"><ExternalLink className="size-4 mr-2" /> Lihat Semua</Link>
-                                </Button> */}
                             </div>
 
                             {/* GRID UTAMA SERTIFIKAT */}
@@ -293,7 +275,6 @@ export default function AboutBento() {
                                         key={index}
                                         className="group relative flex flex-col rounded-xl overflow-hidden border border-border/50 bg-background hover:shadow-md transition-all"
                                     >
-                                        {/* Area Gambar (Rasio 16:9 agar paten) */}
                                         <div className="relative aspect-video w-full overflow-hidden bg-muted/30">
                                             <Image
                                                 src={cert.src}
@@ -303,7 +284,6 @@ export default function AboutBento() {
                                             />
                                         </div>
 
-                                        {/* Footer per-item */}
                                         <div className="flex items-center justify-between p-3 border-t border-border/50 bg-muted/5">
                                             <p className="font-semibold text-sm truncate">{cert.title}</p>
                                             <Button size="sm" variant="ghost" className="h-8 w-8 p-0 rounded-full" asChild title="Lihat Sertifikat">
@@ -318,16 +298,15 @@ export default function AboutBento() {
                         </Card>
 
                         {/* TOMBOL NAVIGASI BAWAH */}
-                        <div className="bottom-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none animate-in fade-in slide-in-from-top-4 duration-1000">
-                            {/* pointer-events-auto agar tombolnya saja yang bisa diklik, ruang kosong di tengahnya tidak menghalangi web */}
-                            <Button variant="secondary" className="rounded-full shadow-xl gap-2 hover:-translate-x-1 transition-transform pointer-events-auto" asChild>
+                        <div className="flex items-center justify-between pt-4">
+                            <Button variant="secondary" className="rounded-full shadow-xl gap-2 hover:-translate-x-1 transition-transform" asChild>
                                 <Link href="/">
                                     <ArrowLeft className="size-4" />
                                     Home
                                 </Link>
                             </Button>
 
-                            <Button className="rounded-full shadow-xl gap-2 hover:translate-x-1 transition-transform pointer-events-auto" asChild>
+                            <Button className="rounded-full shadow-xl gap-2 hover:translate-x-1 transition-transform" asChild>
                                 <Link href="/project">
                                     Project
                                     <ArrowRight className="size-4" />

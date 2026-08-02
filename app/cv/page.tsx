@@ -53,10 +53,9 @@ export default function CvPage() {
                     {/* Content Section */}
                     {isActive ? (
                         <div className="space-y-6">
-                            <CvViewer pdfUrl="/assets/cv/CV_Muhammad_Iqbal_Saputra.pdf" />
-                            
-                            <div className="flex justify-center gap-4">
+                            <div className="flex justify-end gap-3 mb-2">
                             </div>
+                            <CvViewer pdfUrl="/assets/cv/CV_Muhammad_Iqbal_Saputra.pdf" />
                         </div>
                     ) : (
                         <div className="flex flex-col items-center justify-center p-12 text-center rounded-3xl border border-dashed border-border/80 bg-muted/10 backdrop-blur-xs min-h-[400px] animate-in fade-in duration-500">

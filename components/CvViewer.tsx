@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw, Loader2 } from 'l
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 
 // Set worker source
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
 interface CvViewerProps {
     pdfUrl: string
@@ -30,7 +30,7 @@ const pageVariants: Variants = {
         transformOrigin: "center center",
         transition: {
             duration: 0.6,
-            ease: [0.23, 1, 0.32, 1] as [number, number, number, number], // easeOutQuint untuk transisi super halus
+            ease: [0.23, 1, 0.32, 1] as [number, number, number, number],
         }
     },
     exit: (direction: number) => ({
@@ -49,11 +49,10 @@ const pageVariants: Variants = {
 export default function CvViewer({ pdfUrl }: CvViewerProps) {
     const [numPages, setNumPages] = useState<number | null>(null)
     const [pageNumber, setPageNumber] = useState<number>(1)
-    const [direction, setDirection] = useState<number>(0) // 1 = next, -1 = prev
+    const [direction, setDirection] = useState<number>(0)
     const [scale, setScale] = useState<number>(1.0)
     const [rotation, setRotation] = useState<number>(0)
 
-    // Deteksi ukuran container agar PDF pas (100% width)
     const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
     const [containerWidth, setContainerWidth] = useState<number>(750)
 
@@ -93,7 +92,6 @@ export default function CvViewer({ pdfUrl }: CvViewerProps) {
         }
     }
 
-    // Hitung lebar PDF yang ideal dengan padding container
     const padding = 32
     const pdfWidth = Math.min(Math.max(containerWidth - padding, 280), 800)
 
@@ -168,7 +166,7 @@ export default function CvViewer({ pdfUrl }: CvViewerProps) {
             <div 
                 ref={setContainerRef}
                 className="w-full flex justify-center p-4 rounded-3xl bg-muted/20 border border-border/50 relative shadow-inner overflow-hidden min-h-[450px]"
-                style={{ perspective: 1500 }} // Memberi kedalaman 3D untuk efek lembaran kertas
+                style={{ perspective: 1500 }}
             >
                 <Document
                     file={pdfUrl}
