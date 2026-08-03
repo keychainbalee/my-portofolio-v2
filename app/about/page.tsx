@@ -183,7 +183,7 @@ export default function AboutBento() {
                                     <div className="absolute -left-[9px] top-1 size-4 rounded-full bg-primary ring-4 ring-background" />
                                     <p className="font-bold text-sm md:text-base text-primary">Study Club ForTI</p>
                                     <p className="text-sm font-medium">Wakil Ketua</p>
-                                    <p className="text-xs text-muted-foreground mt-1">Sep 2025 - Sekarang</p>
+                                    <p className="text-xs text-muted-foreground mt-1">Sep 2025 - Jul 2026</p>
                                 </div>
 
                                 {/* Item 2 */}
