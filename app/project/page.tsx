@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Footprints, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Footprints, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2, MessageCircle} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -31,7 +31,7 @@ const projectsData = [
         color: "text-blue-700",
         colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
         github: "https://github.com/mataminus-capstone/final_layout_jagamata",
-        demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
+        demo: null 
     },
     {
         title: "Quizzin App",
@@ -43,6 +43,17 @@ const projectsData = [
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/quizzin_mobile",
         demo: "https://quizzin.web.id/"
+    },
+    {
+        title: "Fareky AI",
+        description: "chatbot AI berbasis LLM (Large Language Model) untuk membantu menjawab pertanyaan",
+        role: "Fullstack Dev & AI Engineer",
+        icon: <MessageCircle className="size-8 text-purple-500 mb-4" />,
+        tech: ['Next.js', 'TypeScript'],
+        color: "text-purple-500",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/fareky_ai",
+        demo: "https://fareky-ai.vercel.app/"
     },
     {
         title: "Localize",
