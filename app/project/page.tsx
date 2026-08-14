@@ -1,10 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Footprints, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2, MessageCircle} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Footprints, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2, MessageCircle, X} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -145,7 +145,24 @@ const projectsData = [
     },
 ]
 
+type Project = typeof projectsData[number]
+
 export default function ProjectBento() {
+    const [selected, setSelected] = useState<Project | null>(null)
+
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setSelected(null)
+        }
+        window.addEventListener('keydown', handleKey)
+        return () => window.removeEventListener('keydown', handleKey)
+    }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = selected ? 'hidden' : ''
+        return () => { document.body.style.overflow = '' }
+    }, [selected])
+
     return (
         <div className="min-h-screen bg-transparent pb-20 overflow-hidden">
 
@@ -175,10 +192,11 @@ export default function ProjectBento() {
                         {projectsData.map((project, index) => (
                             <Card
                                 key={index}
+                                onClick={() => setSelected(project)}
                                 // Gabungkan class colSpan dari array dengan class bawaan card
                                 className={cn(
                                     project.colSpan,
-                                    "group relative overflow-hidden rounded-3xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-slate-900/20 backdrop-blur-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500 animate-in fade-in zoom-in-95"
+                                    "group relative overflow-hidden rounded-3xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-slate-900/20 backdrop-blur-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500 animate-in fade-in zoom-in-95 cursor-pointer"
                                 )}
                                 style={{ animationFillMode: "both", animationDelay: `${index * 150}ms` }}
                             >
@@ -202,17 +220,11 @@ export default function ProjectBento() {
                                         </span>
 
                                         <div className="flex gap-3">
-                                            {/* Render icon Github HANYA jika link github diisi */}
                                             {project.github && (
-                                                <Link href={project.github} className={cn("text-muted-foreground transition-colors hover:", project.color)}>
-                                                    <Github className="size-4" />
-                                                </Link>
+                                                <Github className={cn("size-4 text-muted-foreground", project.color)} />
                                             )}
-                                            {/* Render icon External Link HANYA jika link demo diisi */}
                                             {project.demo && (
-                                                <Link href={project.demo} className={cn("text-muted-foreground transition-colors hover:", project.color)}>
-                                                    <ExternalLink className="size-4" />
-                                                </Link>
+                                                <ExternalLink className={cn("size-4 text-muted-foreground", project.color)} />
                                             )}
                                         </div>
                                     </div>
@@ -233,6 +245,76 @@ export default function ProjectBento() {
                     </div>
                 </div>
             </main>
+
+            {/* --- MODAL DETAIL PROYEK --- */}
+            {selected && (
+                <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300"
+                    onClick={() => setSelected(null)}
+                >
+                    <div
+                        className="relative w-full max-w-lg rounded-3xl border border-white/20 dark:border-white/10 bg-background shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Dekorasi header */}
+                        <div className="p-6 pb-4 flex items-start justify-between bg-white/5 dark:bg-white/5">
+                            <div className="flex items-center gap-3">
+                                {selected.icon}
+                                <h3 className="text-2xl font-black tracking-tighter">{selected.title}</h3>
+                            </div>
+                            <button
+                                onClick={() => setSelected(null)}
+                                className="rounded-full p-2 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                                aria-label="Tutup"
+                            >
+                                <X className="size-5" />
+                            </button>
+                        </div>
+
+                        <div className="p-6 pt-2 space-y-5">
+                            <p className={cn("text-xs font-bold uppercase tracking-widest", selected.color)}>
+                                {selected.role}
+                            </p>
+
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                {selected.description}
+                            </p>
+
+                            <div>
+                                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+                                    Teknologi
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                    {selected.tech.map(t => (
+                                        <Badge key={t} variant="outline" className="bg-background/50 backdrop-blur-sm">
+                                            {t}
+                                        </Badge>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                                {selected.github && (
+                                    <Button asChild className="flex-1 gap-2 rounded-full">
+                                        <Link href={selected.github} target="_blank" rel="noopener noreferrer">
+                                            <Github className="size-4" />
+                                            Lihat Repository
+                                        </Link>
+                                    </Button>
+                                )}
+                                {selected.demo && (
+                                    <Button asChild variant="outline" className="flex-1 gap-2 rounded-full">
+                                        <Link href={selected.demo} target="_blank" rel="noopener noreferrer">
+                                            <ExternalLink className="size-4" />
+                                            Kunjungi Demo
+                                        </Link>
+                                    </Button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
