@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Footprints, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ScanFace, Leaf, Gamepad2, MessageCircle, X} from 'lucide-react'
+import { Eye, Map, ShoppingBag, Github, ExternalLink, Smartphone, PersonStandingIcon, ScanEye,GraduationCapIcon, Code2, GraduationCap, Footprints, Users, FileText, Briefcase, Award, ArrowLeft, ArrowRight, ChartColumn, ScanFace, Leaf, Gamepad2, MessageCircle, X} from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils' // Pastikan ini ada untuk menggabungkan class Tailwind
 
@@ -20,7 +20,8 @@ const projectsData = [
         color: "text-primary",
         colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
         github: "https://github.com/keychainbalee/my-portofolio-v2",
-        demo: null // Isi URL jika ada, biarkan null jika tidak ada tombol demo
+        demo: null, // Isi URL jika ada, biarkan null jika tidak ada tombol demo
+        image: null
     },
     {
         title: "JagaMata App",
@@ -31,7 +32,8 @@ const projectsData = [
         color: "text-blue-700",
         colSpan: "md:col-span-2", // Ukuran kotak standar (sepertiga)
         github: "https://github.com/mataminus-capstone/final_layout_jagamata",
-        demo: null 
+        demo: null,
+        image: "/assets/project/Jagamata_Product.svg"
     },
     {
         title: "Quizzin App",
@@ -42,7 +44,8 @@ const projectsData = [
         color: "text-blue-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/quizzin_mobile",
-        demo: "https://quizzin.web.id/"
+        demo: "https://quizzin.web.id/",
+        image: null
     },
     {
         title: "Fareky AI",
@@ -53,7 +56,8 @@ const projectsData = [
         color: "text-purple-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/fareky_ai",
-        demo: "https://fareky-ai.vercel.app/"
+        demo: "https://fareky-ai.vercel.app/",
+        image: null
     },
     {
         title: "Localize",
@@ -64,7 +68,8 @@ const projectsData = [
         color: "text-yellow-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/localize_app",
-        demo: null
+        demo: null,
+        image: null
     },
     {
         title: "Rempah Tour",
@@ -75,7 +80,8 @@ const projectsData = [
         color: "text-orange-500",
         colSpan: "md:col-span-2",
         github: null,
-        demo: null
+        demo: null,
+        image: null
     },
     {
         title: "Sport Seventeen",
@@ -86,7 +92,8 @@ const projectsData = [
         color: "text-rose-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/sport-ecommerce",
-        demo: null
+        demo: null,
+        image: null
     },
     {
         title: "Ini Gadget",
@@ -97,7 +104,8 @@ const projectsData = [
         color: "text-blue-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/inigadget-app",
-        demo: null
+        demo: null,
+        image: null
     },
     {
         title: "Model Pendeteksi 5 Penyakit Mata",
@@ -108,7 +116,8 @@ const projectsData = [
         color: "text-red-600",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/test-and-train-v10",
-        demo: null
+        demo: null,
+        image: null
     },
     {
         title: "Model Pendeteksi Mata Lelah",
@@ -119,7 +128,8 @@ const projectsData = [
         color: "text-pink-600",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/test-and-train-drowsiness-v1",
-        demo: null
+        demo: null,
+        image: null
     },
     {
         title: "Model Pendeteksi Sayuran",
@@ -130,7 +140,20 @@ const projectsData = [
         color: "text-green-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/klasifikasi-sayuran-cnn",
-        demo: null
+        demo: null,
+        image: null
+    },
+    {
+        title: "Analisis Pengembangan UMKM",
+        description: "Mengembangkan model Logistic Regression untuk mengidentifikasi variabel yang paling berpengaruh terhadap hasil prediksi. Dilengkapi visualisasi data intuitif untuk mempermudah interpretasi koefisien dan penarikan kesimpulan.",
+        role: "Data Analyst",
+        icon: <ChartColumn className="size-8 text-orange-500 mb-4" />,
+        tech: ['Python', 'streamlit', 'Matplotlib', 'Seaborn', 'Scikit-learn'],
+        color: "text-orange-500",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/streamlit_umkm_logistic_regression",
+        demo: "https://growthumkm.streamlit.app/",
+        image: null
     },
     {
         title: "Olivia's Nightmares Game",
@@ -141,7 +164,8 @@ const projectsData = [
         color: "text-purple-500",
         colSpan: "md:col-span-2",
         github: "https://github.com/keychainbalee/olivias_nightmares_games",
-        demo: "https://olivenights.vercel.app/"
+        demo: "https://olivenights.vercel.app/",
+        image: null
     },
 ]
 
@@ -270,6 +294,16 @@ export default function ProjectBento() {
                                 <X className="size-5" />
                             </button>
                         </div>
+
+                        {selected.image && (
+                            <div className="p-6 pb-0">
+                                <img
+                                    src={selected.image}
+                                    alt={selected.title}
+                                    className="w-full max-h-72 object-contain rounded-2xl border border-border/50 bg-muted/20"
+                                />
+                            </div>
+                        )}
 
                         <div className="p-6 pt-2 space-y-5">
                             <p className={cn("text-xs font-bold uppercase tracking-widest", selected.color)}>
