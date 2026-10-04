@@ -27,11 +27,11 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
 
-      {/* Dekorasi Cahaya */}
+      {/* Dekorasi Cahaya
       <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
         <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
         <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
-      </div>
+      </div> */}
 
       {/* <Navbar /> */}
 
