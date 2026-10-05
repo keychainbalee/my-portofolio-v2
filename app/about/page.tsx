@@ -62,11 +62,7 @@ export default function AboutBento() {
 
     return (
         <div className="min-h-screen bg-transparent pb-20">
-            {/* Dekorasi Cahaya */}
-            <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
-                <div className="absolute -top-40 -left-40 h-125 w-125 rounded-full bg-primary/20 blur-[120px]" />
-                <div className="absolute -bottom-40 -right-40 h-125 w-125 rounded-full bg-blue-500/20 blur-[120px]" />
-            </div>
+
 
             {/* <Navbar /> */}
 
@@ -104,7 +100,7 @@ export default function AboutBento() {
                                     <Badge className="w-fit mb-4 mx-auto md:mx-0 bg-primary/20 text-primary hover:bg-primary/30 border-none">
                                         Mahasiswa Teknik Informatika
                                     </Badge>
-                                    <h1 className="text-3xl md:text-4xl lg:text-6xl font-black tracking-tighter">
+                                    <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight">
                                         Muhammad Iqbal Saputra
                                     </h1>
                                     <p className="mt-4 md:mt-6 text-muted-foreground max-w-2xl text-base md:text-lg leading-relaxed">

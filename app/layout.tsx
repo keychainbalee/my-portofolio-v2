@@ -1,19 +1,19 @@
 // app/layout.tsx
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 import Snowfall from 'react-snowfall'
 import { SnowfallWrapper } from "@/components/SnowfallWrapper"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
 })
 
@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       {/* Tambahkan overflow-y-scroll di bawah ini */}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground overflow-y-scroll`}
+        className={`${jakarta.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground overflow-y-scroll`}
       >
         <ThemeProvider
           attribute="class"

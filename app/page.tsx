@@ -30,7 +30,7 @@ export default function Home() {
       {/* Dekorasi Cahaya
       <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
         <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
-        <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
+        <div className="absolute -bott om-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
       </div> */}
 
       {/* <Navbar /> */}
@@ -44,7 +44,7 @@ export default function Home() {
           <div className="lg:col-span-3 lg:row-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
 
             {/* Animasi Slide Up untuk Heading */}
-            <h1 className="max-w-md scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <h1 className="max-w-md scroll-m-20 text-3xl font-bold tracking-tight lg:text-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
               Hi, Saya <span className="text-primary">Muhammad Iqbal Saputra</span>.
             </h1>
 

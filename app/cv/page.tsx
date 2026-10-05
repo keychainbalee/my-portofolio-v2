@@ -24,11 +24,11 @@ const isActive = true
 export default function CvPage() {
     return (
         <div className="min-h-screen bg-transparent pb-20">
-            {/* Dekorasi Cahaya */}
+            {/* Dekorasi Cahaya
             <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
                 <div className="absolute -top-40 -left-40 h-125 w-125 rounded-full bg-primary/20 blur-[120px]" />
                 <div className="absolute -bottom-40 -right-40 h-125 w-125 rounded-full bg-blue-500/20 blur-[120px]" />
-            </div>
+            </div> */}
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-4xl">
@@ -41,7 +41,7 @@ export default function CvPage() {
                                     <ArrowLeft className="size-4 mr-1" /> Kembali ke About
                                 </Link>
                             </div>
-                            <h1 className="text-3xl md:text-5xl font-black tracking-tighter flex items-center gap-3">
+                            <h1 className="text-3xl md:text-5xl font-bold tracking-tight flex items-center gap-3">
                                 <FileText className="size-8 md:size-12 text-primary" /> Curriculum Vitae
                             </h1>
                             <p className="text-muted-foreground mt-2">

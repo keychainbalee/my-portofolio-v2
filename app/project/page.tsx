@@ -190,18 +190,18 @@ export default function ProjectBento() {
     return (
         <div className="min-h-screen bg-transparent pb-20 overflow-hidden">
 
-            {/* Dekorasi Cahaya */}
+            {/* Dekorasi Cahaya
             <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
                 <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
                 <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
-            </div>
+            </div> */}
 
             <main className="container mx-auto px-4 pt-24 md:pt-32">
                 <div className="mx-auto max-w-6xl">
 
                     {/* Header */}
                     <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tighter mb-4">
+                        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
                             Koleksi <span className="text-primary">Proyek</span> Saya
                         </h1>
                         <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -220,35 +220,35 @@ export default function ProjectBento() {
                                 // Gabungkan class colSpan dari array dengan class bawaan card
                                 className={cn(
                                     project.colSpan,
-                                    "group relative overflow-hidden rounded-3xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-slate-900/20 backdrop-blur-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500 animate-in fade-in zoom-in-95 cursor-pointer"
+                                    "h-[280px] group relative overflow-hidden rounded-xl border border-border/50 bg-card hover:border-border transition-colors duration-300 shadow-sm hover:shadow-md animate-in fade-in slide-in-from-bottom-4 cursor-pointer"
                                 )}
                                 style={{ animationFillMode: "both", animationDelay: `${index * 150}ms` }}
                             >
                                 <CardContent className="p-0 flex flex-col h-full">
                                     <div className="p-6 flex-1">
                                         {project.icon}
-                                        <h4 className="font-bold text-xl mb-2">{project.title}</h4>
-                                        <p className="text-sm text-foreground/80">{project.description}</p>
+                                        <h4 className="font-semibold text-lg mb-2">{project.title}</h4>
+                                        <p className="text-sm text-foreground/80 line-clamp-3">{project.description}</p>
                                         <div className="flex flex-wrap gap-2 mt-4">
                                             {project.tech.map(t => (
-                                                <Badge key={t} variant="outline" className="text-[10px] bg-background/50 backdrop-blur-sm">
+                                                <Badge key={t} variant="secondary" className="text-[10px] font-medium">
                                                     {t}
                                                 </Badge>
                                             ))}
                                         </div>
                                     </div>
 
-                                    <div className="mt-auto bg-white/5 dark:bg-black/10 p-4 border-t border-white/10 flex justify-between items-center">
-                                        <span className={cn("text-[10px] font-bold uppercase tracking-widest", project.color)}>
+                                    <div className="mt-auto p-4 border-t border-border/50 flex justify-between items-center">
+                                        <span className={cn("text-[10px] font-semibold uppercase tracking-widest text-muted-foreground")}>
                                             {project.role}
                                         </span>
 
                                         <div className="flex gap-3">
                                             {project.github && (
-                                                <Github className={cn("size-4 text-muted-foreground", project.color)} />
+                                                <Github className="size-4 text-muted-foreground hover:text-foreground transition-colors" />
                                             )}
                                             {project.demo && (
-                                                <ExternalLink className={cn("size-4 text-muted-foreground", project.color)} />
+                                                <ExternalLink className="size-4 text-muted-foreground hover:text-foreground transition-colors" />
                                             )}
                                         </div>
                                     </div>
@@ -277,14 +277,14 @@ export default function ProjectBento() {
                     onClick={() => setSelected(null)}
                 >
                     <div
-                        className="relative w-full max-w-lg rounded-3xl border border-white/20 dark:border-white/10 bg-background shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300"
+                        className="relative w-full max-w-lg rounded-xl border border-border/50 bg-background shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Dekorasi header */}
-                        <div className="p-6 pb-4 flex items-start justify-between bg-white/5 dark:bg-white/5">
+                        <div className="p-6 pb-4 flex items-start justify-between border-b border-border/50 bg-muted/30">
                             <div className="flex items-center gap-3">
                                 {selected.icon}
-                                <h3 className="text-2xl font-black tracking-tighter">{selected.title}</h3>
+                                <h3 className="text-xl font-semibold tracking-tight">{selected.title}</h3>
                             </div>
                             <button
                                 onClick={() => setSelected(null)}
