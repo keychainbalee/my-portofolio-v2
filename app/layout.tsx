@@ -4,8 +4,8 @@ import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
-import Snowfall from 'react-snowfall'
 import { SnowfallWrapper } from "@/components/SnowfallWrapper"
+import { DotGridWrapper } from "@/components/DotGridWrapper"
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -39,8 +39,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-
-          <SnowfallWrapper />
+          {/* <SnowfallWrapper /> */}
+          <DotGridWrapper />
           {/* Navbar akan muncul di semua halaman */}
           <Navbar />
           <main className="relative flex min-h-screen flex-col">

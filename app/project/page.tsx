@@ -84,6 +84,18 @@ const projectsData = [
         image: null
     },
     {
+        title: "LogIntern",
+        description: "Website pencatatan kegiatan magang",
+        role: "Fullstack Developer",
+        icon: <Map className="size-8 text-shadow-amber-800 mb-4" />,
+        tech: ['Nextjs', 'Turso Sqlite', 'Tailwind CSS'],
+        color: "text-shadow-amber-800",
+        colSpan: "md:col-span-2",
+        github: "https://github.com/keychainbalee/logintern_web",
+        demo: "https://logintern.vercel.app/",
+        image: null
+    },
+    {
         title: "Sport Seventeen",
         description: "Website E-commerce memfasilitasi transaksi jual beli alat olahraga.",
         role: "Frontend Dev",
