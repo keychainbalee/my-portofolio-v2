@@ -4,7 +4,7 @@ import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
-import { SnowfallWrapper } from "@/components/SnowfallWrapper"
+// import { SnowfallWrapper } from "@/components/SnowfallWrapper"
 import { DotGridWrapper } from "@/components/DotGridWrapper"
 
 const jakarta = Plus_Jakarta_Sans({

@@ -25,6 +25,14 @@ interface Dot {
   speedMult: number;
 }
 
+interface RGB {
+  r: number;
+  g: number;
+  b: number;
+}
+
+const TWO_PI = Math.PI * 2;
+
 function smoothstep(t: number): number {
   const c = Math.max(0, Math.min(1, t));
   return c * c * (3 - 2 * c);
@@ -47,7 +55,7 @@ function resolveVar(raw: string, el: HTMLElement | null): string {
   return "#888888";
 }
 
-function parseColor(raw: string, el: HTMLElement | null): { r: number; g: number; b: number } {
+function parseColor(raw: string, el: HTMLElement | null): RGB {
   try {
     const color = resolveVar(raw, el);
     if (color.startsWith("rgb")) {
@@ -108,6 +116,14 @@ export default function DotGridBackground({
 
   const dotsRef = useRef<Dot[]>([]);
   const spacingSnapRef = useRef(dotSpacing);
+  const rgbRef = useRef<RGB>({ r: 99, g: 102, b: 241 });
+  const redrawRef = useRef<(() => void) | null>(null);
+
+  // Re-cache color & redraw static frame when visual props change (e.g., Light/Dark toggle)
+  useEffect(() => {
+    rgbRef.current = parseColor(dotColor, canvasRef.current);
+    redrawRef.current?.();
+  }, [dotColor, dotSize, dotSpacing, impactRadius, scaleOnHover, enableRevolve]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -116,7 +132,11 @@ export default function DotGridBackground({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let dpr = window.devicePixelRatio || 1;
+    const isStaticMode =
+      window.matchMedia("(pointer: coarse)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
     let W = 0;
     let H = 0;
     const mouse = { x: -9999, y: -9999 };
@@ -125,38 +145,178 @@ export default function DotGridBackground({
     let prevTs = 0;
     let raf = 0;
     let globalAngle = 0;
+    let cachedRect = canvas.getBoundingClientRect();
+
+    rgbRef.current = parseColor(cfgRef.current.dotColor, canvas);
 
     function buildDots() {
       const sp = cfgRef.current.dotSpacing;
       spacingSnapRef.current = sp;
-      dotsRef.current = [];
+      const dots: Dot[] = [];
       const cols = Math.ceil(W / sp) + 2;
       const rows = Math.ceil(H / sp) + 2;
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-          dotsRef.current.push({
+          dots.push({
             bx: c * sp,
             by: r * sp,
             inclination: Math.random() * Math.PI,
-            ascension: Math.random() * Math.PI * 2,
-            phase: Math.random() * Math.PI * 2,
+            ascension: Math.random() * TWO_PI,
+            phase: Math.random() * TWO_PI,
             speedMult: 0.7 + Math.random() * 0.6,
           });
         }
       }
+      dotsRef.current = dots;
+    }
+
+    function renderFrame(decay: number) {
+      if (!ctx) return;
+      const cfg = cfgRef.current;
+      if (spacingSnapRef.current !== cfg.dotSpacing) {
+        buildDots();
+      }
+
+      ctx.clearRect(0, 0, W, H);
+
+      const rgb = rgbRef.current;
+      const baseR = cfg.dotSize / 2;
+      const dots = dotsRef.current;
+      const hasInteractive = !isStaticMode && decay > 0 && mouse.x > -9000;
+      const mx = mouse.x;
+      const my = mouse.y;
+      const impactR = cfg.impactRadius;
+      const impactRSq = impactR * impactR;
+
+      // Batch all idle dots into a single canvas path + single fill call
+      const activeDots: { d: Dot; dist: number }[] = [];
+      ctx.beginPath();
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        if (hasInteractive) {
+          const dx = d.bx - mx;
+          const dy = d.by - my;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < impactRSq && distSq > 0) {
+            activeDots.push({ d, dist: Math.sqrt(distSq) });
+            continue;
+          }
+        }
+        ctx.moveTo(d.bx + baseR, d.by);
+        ctx.arc(d.bx, d.by, baseR, 0, TWO_PI);
+      }
+      ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},0.3)`;
+      ctx.fill();
+
+      // Draw only the dots within impactRadius individually
+      for (let i = 0; i < activeDots.length; i++) {
+        const { d, dist } = activeDots[i];
+        const t = dist / impactR;
+        const inf = smoothstep(1 - t) * decay;
+
+        let x = d.bx;
+        let y = d.by;
+        let scale = 1;
+        let alpha = 0.3;
+
+        if (cfg.enableRevolve) {
+          const orbitR = (1 - t) * cfg.dotSpacing * 0.7 * inf;
+          const theta = globalAngle * d.speedMult + d.phase;
+          const cosA = Math.cos(d.ascension);
+          const sinA = Math.sin(d.ascension);
+          const cosI = Math.cos(d.inclination);
+          const sinI = Math.sin(d.inclination);
+          const lx = Math.cos(theta);
+          const ly = Math.sin(theta) * cosI;
+          const lz = Math.sin(theta) * sinI;
+
+          const ox = (lx * cosA - ly * sinA) * orbitR;
+          const oy = (lx * sinA + ly * cosA) * orbitR;
+          x = d.bx + ox;
+          y = d.by + oy;
+
+          const depthScale = 0.75 + 0.25 * ((lz + 1) * 0.5);
+          scale = (1 + (cfg.scaleOnHover - 1) * inf) * depthScale;
+          alpha = (0.3 + 0.7 * inf) * depthScale;
+        } else {
+          scale = 1 + (cfg.scaleOnHover - 1) * inf;
+          alpha = 0.3 + 0.7 * inf;
+        }
+
+        const r = baseR * scale;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, TWO_PI);
+        ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
+        ctx.fill();
+      }
+    }
+
+    function stopLoop() {
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    }
+
+    function startLoop() {
+      if (raf || isStaticMode || document.hidden) return;
+      prevTs = 0;
+      raf = requestAnimationFrame(loop);
+    }
+
+    function loop(ts: number) {
+      if (document.hidden) {
+        raf = 0;
+        return;
+      }
+
+      const dt = Math.min((ts - (prevTs || ts)) / 1000, 0.05);
+      prevTs = ts;
+
+      const cfg = cfgRef.current;
+      globalAngle += cfg.orbitSpeed * dt;
+
+      const timeSinceLeave = hovering ? 0 : Math.max(0, ts - leaveTs) / 1000;
+      const decay = hovering ? 1 : smoothstep(Math.max(0, 1 - timeSinceLeave * 1.5));
+
+      renderFrame(decay);
+
+      // Pause loop completely when not hovering and decay has finished
+      if (!hovering && decay <= 0.001) {
+        mouse.x = -9999;
+        mouse.y = -9999;
+        renderFrame(0);
+        raf = 0;
+        return;
+      }
+
+      // If revolving is off and mouse hasn't moved while hovering, no need to redraw every frame
+      if (hovering && !cfg.enableRevolve) {
+        raf = 0;
+        return;
+      }
+
+      raf = requestAnimationFrame(loop);
     }
 
     function resize() {
       if (!canvas || !ctx) return;
-      const rect = canvas.getBoundingClientRect();
-      dpr = window.devicePixelRatio || 1;
-      W = rect.width || window.innerWidth;
-      H = rect.height || window.innerHeight;
+      cachedRect = canvas.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = cachedRect.width || window.innerWidth;
+      H = cachedRect.height || window.innerHeight;
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       buildDots();
+      renderFrame(hovering ? 1 : 0);
     }
+
+    redrawRef.current = () => {
+      if (!raf) {
+        renderFrame(hovering ? 1 : 0);
+      }
+    };
 
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
@@ -164,102 +324,49 @@ export default function DotGridBackground({
     resize();
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
+      mouse.x = e.clientX - cachedRect.left;
+      mouse.y = e.clientY - cachedRect.top;
       hovering = true;
+      if (cfgRef.current.enableRevolve) {
+        startLoop();
+      } else {
+        renderFrame(1);
+      }
     };
 
     const handleMouseLeave = () => {
-      mouse.x = -9999;
-      mouse.y = -9999;
+      if (!hovering) return;
       hovering = false;
       leaveTs = performance.now();
+      startLoop();
     };
 
-    // Track mouse on window so background effect responds across entire viewport
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
-
-    function loop(ts: number) {
-      raf = requestAnimationFrame(loop);
-      if (!ctx) return;
-
-      const dt = Math.min((ts - (prevTs || ts)) / 1000, 0.05);
-      prevTs = ts;
-
-      const cfg = cfgRef.current;
-      if (spacingSnapRef.current !== cfg.dotSpacing) {
-        buildDots();
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopLoop();
+      } else if (hovering) {
+        startLoop();
+      } else {
+        renderFrame(0);
       }
+    };
 
-      globalAngle += cfg.orbitSpeed * dt;
-      ctx.clearRect(0, 0, W, H);
-
-      const rgb = parseColor(cfg.dotColor, canvas);
-      const mx = mouse.x;
-      const my = mouse.y;
-      const timeSinceLeave = hovering ? 0 : Math.max(0, ts - leaveTs) / 1000;
-      const decay = hovering ? 1 : smoothstep(Math.max(0, 1 - timeSinceLeave * 1.5));
-
-      for (let i = 0; i < dotsRef.current.length; i++) {
-        const d = dotsRef.current[i];
-        const dx = d.bx - mx;
-        const dy = d.by - my;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const inRange = dist < cfg.impactRadius && dist > 0;
-
-        let x = d.bx;
-        let y = d.by;
-        let scale = 1;
-        let alpha = 0.3;
-
-        if (inRange) {
-          const t = dist / cfg.impactRadius;
-          const inf = smoothstep(1 - t) * decay;
-
-          if (cfg.enableRevolve) {
-            const orbitR = (1 - t) * cfg.dotSpacing * 0.7 * inf;
-            const theta = globalAngle * d.speedMult + d.phase;
-            const cosA = Math.cos(d.ascension);
-            const sinA = Math.sin(d.ascension);
-            const cosI = Math.cos(d.inclination);
-            const sinI = Math.sin(d.inclination);
-            const lx = Math.cos(theta);
-            const ly = Math.sin(theta) * cosI;
-            const lz = Math.sin(theta) * sinI;
-
-            const ox = (lx * cosA - ly * sinA) * orbitR;
-            const oy = (lx * sinA + ly * cosA) * orbitR;
-            x = d.bx + ox;
-            y = d.by + oy;
-
-            const depthScale = 0.75 + 0.25 * ((lz + 1) * 0.5);
-            scale = (1 + (cfg.scaleOnHover - 1) * inf) * depthScale;
-            alpha = (0.3 + 0.7 * inf) * depthScale;
-          } else {
-            scale = 1 + (cfg.scaleOnHover - 1) * inf;
-            alpha = 0.3 + 0.7 * inf;
-          }
-        }
-
-        const r = (cfg.dotSize / 2) * scale;
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
-        ctx.fill();
-      }
+    if (!isStaticMode) {
+      window.addEventListener("mousemove", handleMouseMove, { passive: true });
+      document.addEventListener("mouseleave", handleMouseLeave);
+      document.addEventListener("visibilitychange", handleVisibilityChange);
     }
 
-    raf = requestAnimationFrame(loop);
-
     return () => {
-      cancelAnimationFrame(raf);
+      stopLoop();
+      redrawRef.current = null;
       ro.disconnect();
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleMouseLeave);
+      if (!isStaticMode) {
+        window.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseleave", handleMouseLeave);
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
     };
   }, []);
 

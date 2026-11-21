@@ -3,9 +3,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ArrowLeft, Download, FileText, ShieldAlert, Loader2 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { ArrowLeft, FileText, ShieldAlert, Loader2 } from 'lucide-react'
 
 // Import CvViewer dynamically to disable SSR rendering
 const CvViewer = dynamic(() => import('@/components/CvViewer'), {

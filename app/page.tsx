@@ -1,54 +1,22 @@
-"use client";
 import Link from "next/link";
-import { Navbar } from '@/components/navbar'
-import { Button } from "@/components/ui/button"
-import Image from "next/image";
-import { Instagram, Mail, Github, Linkedin, ArrowRightCircle, ArrowRight } from 'lucide-react'
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-
-const PROFILE_IMAGES = [
-  "/assets/fotoprofil/profilsaya.png", 
-  "/assets/fotoprofil/profilesaya2.jpeg",
-];
+import { Button } from "@/components/ui/button";
+import { Instagram, Mail, Github, Linkedin, ArrowRight } from "lucide-react";
+import { ProfileCardStack } from "@/components/ProfileCardStack";
 
 export default function Home() {
-  const [cards, setCards] = useState(PROFILE_IMAGES);
-
-  const moveToEnd = () => {
-    setCards((prev) => {
-      const newCards = [...prev];
-      const first = newCards.shift();
-      if (first) newCards.push(first);
-      return newCards;
-    });
-  };
-
   return (
     <div className="relative min-h-screen">
-
-      {/* Dekorasi Cahaya
-      <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
-        <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
-        <div className="absolute -bott om-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
-      </div> */}
-
-      {/* <Navbar /> */}
-
       <main className="container mx-auto px-4 pt-28 pb-12 lg:pt-40">
-
         {/* Layout Grid Baru: 5 Kolom, 5 Baris di Desktop */}
         <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-5 gap-8 lg:gap-4 items-center">
-
           {/* Bagian Kiri (Box 1): Teks dan Tombol */}
           <div className="lg:col-span-3 lg:row-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
-
             {/* Animasi Slide Up untuk Heading */}
             <h1 className="max-w-md scroll-m-20 text-3xl font-bold tracking-tight lg:text-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
               Hi, Saya <span className="text-primary">Muhammad Iqbal Saputra</span>.
             </h1>
 
-            {/* Animasi Slide Up untuk Paragraf dengan sedikit delay (duration lebih lama) */}
+            {/* Animasi Slide Up untuk Paragraf */}
             <p className="mt-4 max-w-md text-base text-muted-foreground lg:text-lg animate-in fade-in slide-in-from-bottom-10 duration-1500">
               Jelajahi Portofolio saya. Tempat saya mendokumentasikan perjalanan dan hasil eksplorasi di bidang Teknologi
             </p>
@@ -64,7 +32,7 @@ export default function Home() {
 
               {/* Instagram */}
               <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
-                <Link href="https://instagram.com/balee.sa" target="_blank">
+                <Link href="https://instagram.com/balee.sa" target="_blank" rel="noopener noreferrer">
                   <Instagram className="size-5" />
                   <span className="sr-only">Instagram</span>
                 </Link>
@@ -80,7 +48,7 @@ export default function Home() {
 
               {/* Github */}
               <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
-                <Link href="https://github.com/keychainbalee" target="_blank">
+                <Link href="https://github.com/keychainbalee" target="_blank" rel="noopener noreferrer">
                   <Github className="size-5" />
                   <span className="sr-only">Github</span>
                 </Link>
@@ -88,7 +56,7 @@ export default function Home() {
 
               {/* Linkedin */}
               <Button variant="outline" size="icon" className="rounded-full size-10 hover:-translate-y-1 transition-transform" asChild>
-                <Link href="https://linkedin.com/in/miqbalptr" target="_blank">
+                <Link href="https://linkedin.com/in/miqbalptr" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="size-5" />
                   <span className="sr-only">Linkedin</span>
                 </Link>
@@ -96,65 +64,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bagian Kanan (Box 3): Gambar Profil */}
-          {/* Animasi Slide dari Kanan untuk Gambar */}
-          {/* Card Stack */}
+          {/* Bagian Kanan (Box 3): Card Stack Gambar Profil */}
           <div className="lg:col-span-2 lg:row-span-5 lg:col-start-4 flex justify-center lg:justify-end items-center min-h-[300px]">
-            <div className="relative size-56 lg:size-72">
-              <AnimatePresence mode="popLayout">
-                {cards.map((src, index) => {
-                  const isTop = index === 0;
-                  return (
-                    <motion.div
-                      key={src}
-                      style={{
-                        zIndex: cards.length - index,
-                        cursor: isTop ? "grab" : "default",
-                      }}
-                      initial={{ scale: 0.9, opacity: 0, x: 20 }}
-                      animate={{
-                        scale: 1 - index * 0.05,
-                        y: index * 10,
-                        x: 0,
-                        opacity: 1 - index * 0.2,
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 25,
-                        duration: 0.2,
-                      }}
-                      exit={{
-                        x: 150,
-                        opacity: 0,
-                        rotate: 15,
-                        transition: { duration: 0.2 } 
-                      }}
-                      drag={isTop ? "x" : false}
-                      dragConstraints={{ left: 0, right: 0 }}
-                      onDragEnd={(_, info) => {
-                        // Jika swipe lebih dari 50px (lebih sensitif)
-                        if (Math.abs(info.offset.x) > 50) moveToEnd();
-                      }}
-                      onClick={isTop ? moveToEnd : undefined}
-                      className="absolute inset-0 overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted shadow-xl"
-                    >
-                      <Image
-                        src={src}
-                        alt="Profile Muhammad Iqbal Saputra"
-                        fill
-                        className="object-cover pointer-events-none select-none"
-                        priority={isTop}
-                      />
-                    </motion.div>
-                  );
-                })}
-              </AnimatePresence>
-            </div>
+            <ProfileCardStack />
           </div>
-
         </div>
-
       </main>
     </div>
   );

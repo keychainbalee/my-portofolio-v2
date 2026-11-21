@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw, Loader2 } from 'lucide-react'
-import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { AnimatePresence, motion, Variants } from 'motion/react'
 
 // Set worker source
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
